@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="307AC7F0-B87A-29D0-AD2B-D1B60554A912" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="TEMPORADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_TEMPORADA" id="12EE36D0-2BA3-AA03-18E6-34438B34809E">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>TEMPORADA</sourceObjSchema>
+<sourceObjName>ID_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="TEMPORADA_NOMBRE_TEMPORADA" id="FD0E3DC7-DDFC-07A2-5F3C-E5C17310AFCB">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>TEMPORADA</sourceObjSchema>
+<sourceObjName>TEMPORADA_NOMBRE_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TEMPORADA_ESTADO" id="977CBB3B-6F28-FA6D-F65A-33CF89C527E7">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>TEMPORADA</sourceObjSchema>
+<sourceObjName>TEMPORADA_ESTADO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TEMPORADA_INICIO_TEMPORADA" id="83EC3BAB-52F7-DAE5-4898-DD8E972ADDFC">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>TEMPORADA</sourceObjSchema>
+<sourceObjName>TEMPORADA_INICIO_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TEMPORADA_FIN_TEMPORADA" id="D4A235C5-215E-C106-E3F7-3CE3313A7FDB">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>TEMPORADA</sourceObjSchema>
+<sourceObjName>TEMPORADA_FIN_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7947204D-C116-77AE-F200-B5A605440EA6" name="PK_TEMPORADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12EE36D0-2BA3-AA03-18E6-34438B34809E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9AF17584-4843-475D-B520-485F7518505F" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_TEMPORADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:30 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12EE36D0-2BA3-AA03-18E6-34438B34809E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

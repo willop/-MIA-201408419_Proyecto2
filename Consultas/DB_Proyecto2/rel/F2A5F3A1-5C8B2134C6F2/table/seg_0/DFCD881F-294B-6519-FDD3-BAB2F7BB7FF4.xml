@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DFCD881F-294B-6519-FDD3-BAB2F7BB7FF4" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_EVENTO" id="9E275980-4C1D-F732-2C13-2C374F72C130">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EVENTO</sourceObjSchema>
+<sourceObjName>ID_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="EVENTO_COLOR" id="707AE2E5-490C-9A8F-F9BB-B6DECFA00AE7">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_COLOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_PUNTAJE_LOCAL" id="FBFBDCC9-2469-1F93-69F8-534FC77BA7C0">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_PUNTAJE_LOCAL</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_PUNTAJE_VISITANTE" id="9AE0C195-2D7C-C94B-9A94-EF9F0830A908">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EVENTO</sourceObjSchema>
+<sourceObjName>EVENTO_PUNTAJE_VISITANTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_JORNADA" id="659053AE-8F3A-D2BD-5C22-732504733DB3">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EVENTO</sourceObjSchema>
+<sourceObjName>FK_ID_JORNADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B1BCA7F7-D962-A4E2-182D-AD7163AD9034" referredColumn="60EAAD01-3416-B5C1-F38F-4B6A4A8B2DA6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5758E323-3CBD-A698-A106-6FC88085C2CC" name="PK_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E275980-4C1D-F732-2C13-2C374F72C130"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E964CC88-FCF1-DACD-AF55-65E6E84AE10C" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E275980-4C1D-F732-2C13-2C374F72C130"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0892DBD5-6C56-B294-DD5D-40831956B24F" name="FK_EVENTO_JORNADA">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:19 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="659053AE-8F3A-D2BD-5C22-732504733DB3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

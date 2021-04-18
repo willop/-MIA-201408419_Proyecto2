@@ -1,0 +1,120 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0DFD86F5-CC5D-417E-CBA8-5E37EDB045F8" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PARTIDO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PARTIDO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PARTIDO" id="F51052B6-F42E-5D39-5EEA-943FFB26DF8C">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PARTIDO</sourceObjSchema>
+<sourceObjName>ID_PARTIDO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="FK_ID_EQUIPO" id="F31D208C-7B29-609F-062C-0D8F91FC4251">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PARTIDO</sourceObjSchema>
+<sourceObjName>FK_ID_EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BBA74DA7-37B7-0A7B-1B1C-311C71E9F6F9" referredColumn="C3D252D9-92EE-713E-C5BA-978B8EF1242C"/>
+</associations>
+</Column>
+<Column name="FK_ID_EVENTO" id="4668DF93-FF80-0A0B-0F51-357AFE5B6FE6">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PARTIDO</sourceObjSchema>
+<sourceObjName>FK_ID_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B2506F2B-8E0F-49BE-0752-F66DBF628E1D" referredColumn="9E275980-4C1D-F732-2C13-2C374F72C130"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4919CDC5-0DA9-222C-FA0F-6634124C9776" name="PK_PARTIDO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_PARTIDO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F51052B6-F42E-5D39-5EEA-943FFB26DF8C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C9D4D77-B625-AB4F-34E2-5A5134BCE897" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_PARTIDO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_PARTIDO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F51052B6-F42E-5D39-5EEA-943FFB26DF8C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E3D5BF5D-2E13-87AC-EB8B-0A529F9A42AE" name="FK_PARITDO_EQUIPO">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F31D208C-7B29-609F-062C-0D8F91FC4251"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D559388-C6B2-2CAF-3572-F69B050E2263" name="FK_PARITDO_EVENTO">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4668DF93-FF80-0A0B-0F51-357AFE5B6FE6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

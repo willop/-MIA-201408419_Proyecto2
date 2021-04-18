@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CABA95ED-92E1-3CF5-E4CD-235B47BD4A26" containerWithKeyObject="9B316E61-31C8-4723-C753-942BE1C5EEED" localFKIndex="D1398F03-4737-1572-BC60-6344B7726A69" name="FK_CLIENTE_MEMBRESIA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_CLIENTE_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.MEMBRESIA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>09CCCB64-F485-2F12-9216-5AD63454A3CA</referredTableID>
+<keyObject>17E72299-C3FA-E0DD-1DAC-D6824BA08A59</keyObject>
+<referredKeyID>17E72299-C3FA-E0DD-1DAC-D6824BA08A59</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_MEMBRESIA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

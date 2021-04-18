@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9A32E5A0-99BF-6718-DB7D-29D71139A9A3" containerWithKeyObject="B04B6F99-3645-8559-0FFC-62099B47D6B6" localFKIndex="2E3B0632-9CDB-2EA5-64E8-1B5A69750FAE" name="FK_HISTORIAL_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_HISTORIAL_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:26 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.EVENTO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DFCD881F-294B-6519-FDD3-BAB2F7BB7FF4</referredTableID>
+<keyObject>E964CC88-FCF1-DACD-AF55-65E6E84AE10C</keyObject>
+<referredKeyID>E964CC88-FCF1-DACD-AF55-65E6E84AE10C</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_EVENTO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

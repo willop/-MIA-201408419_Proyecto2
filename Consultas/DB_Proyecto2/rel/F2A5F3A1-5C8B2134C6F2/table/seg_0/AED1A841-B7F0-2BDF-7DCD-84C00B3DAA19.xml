@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AED1A841-B7F0-2BDF-7DCD-84C00B3DAA19" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="CHAT">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>CHAT</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CHAT" id="03C78F29-B2B3-4DE3-6BD0-1FCE086FF8BF">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>CHAT</sourceObjSchema>
+<sourceObjName>ID_CHAT</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="CHAT_MENSAJE" id="CDC03A9E-2CBF-9566-ADDA-1F319D3155DE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>CHAT</sourceObjSchema>
+<sourceObjName>CHAT_MENSAJE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_CLIENTE" id="3193953F-9F04-C409-2C7C-DC0A07D64EEA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>CHAT</sourceObjSchema>
+<sourceObjName>FK_ID_CLIENTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2F8CC490-0475-DF5B-0306-5896174F3388" referredColumn="A7D7DCBF-FA74-5482-9751-25641F285C66"/>
+</associations>
+</Column>
+<Column name="FK_ID_ADMINISTRADOR" id="B394E41A-D68C-5705-DB5A-3DC4E2B4869B">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>CHAT</sourceObjSchema>
+<sourceObjName>FK_ID_ADMINISTRADOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7B91885A-B523-CDDA-7C13-9B5E840A817F" referredColumn="7C572CCA-E75C-2237-8CFD-FB065FEE1ACD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="48C0E032-7D9C-F2F1-5641-2F198BC56F87" name="PK_CHAT">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_CHAT</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03C78F29-B2B3-4DE3-6BD0-1FCE086FF8BF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F713D659-9334-DF92-84EF-5F5AEFF4C107" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_CHAT">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_CHAT</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03C78F29-B2B3-4DE3-6BD0-1FCE086FF8BF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="42643AB7-C06C-751C-61B6-852F26F19B37" name="FK_CHAT_ADMINISTRADOR">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B394E41A-D68C-5705-DB5A-3DC4E2B4869B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="269DF0C3-D61C-6126-B757-632CABE4D429" name="FK_CHAT_CLIENTE">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3193953F-9F04-C409-2C7C-DC0A07D64EEA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

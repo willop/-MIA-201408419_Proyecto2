@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D342AC31-2F26-354E-7990-AA8E9074A1C9" containerWithKeyObject="3D516CA9-072B-4C07-4D05-84560C1CC552" localFKIndex="41A90BAD-5A0A-97C4-18F3-F19B7F44C6E3" name="FK_DEPORTE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_DEPORTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:08 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.DEPORTE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>025A35E0-B8CB-0D41-0E1C-2541DAC65BF4</referredTableID>
+<keyObject>132879EE-387D-A7FC-AAAB-5D07FBC9F597</keyObject>
+<referredKeyID>132879EE-387D-A7FC-AAAB-5D07FBC9F597</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_DEPORTE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

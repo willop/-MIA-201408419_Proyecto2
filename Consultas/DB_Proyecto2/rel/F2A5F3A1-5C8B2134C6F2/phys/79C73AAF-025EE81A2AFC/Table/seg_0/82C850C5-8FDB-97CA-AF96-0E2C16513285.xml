@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="RANKING" directorySegmentName="seg_0" id="82C850C5-8FDB-97CA-AF96-0E2C16513285">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FCA49D92-2F6D-AD55-02CB-94370686E1A6</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FK_ID_CLIENTE" id="14CAD2F9-3C03-8AA2-D18F-D44C6A81F02D">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RANKING_INCREMENTO" id="747C3956-60F7-B145-ED94-ADEBB61C9893">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_RANKING" id="F2D9777E-79DA-9070-AE60-D2012FC27F25">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="FK_ID_TEMPORADA" id="F6BA6B36-0F9E-DCFF-C08C-A6C64553B985">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_RANKING" id="698A3516-879F-F827-9DFB-5596018E190A">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_RANKING_CLIENTE" id="EA09499E-D9C6-78FD-6290-1243518C838A">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_RANKING_TEMPORADA" id="F47FF84B-C78E-CC0E-99D4-E15E44D566C4">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_RANKING" id="C1F39DEE-F367-69C7-E36B-F574FC8E5C31">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<existingIndex>698A3516-879F-F827-9DFB-5596018E190A</existingIndex>
+<indexSegment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

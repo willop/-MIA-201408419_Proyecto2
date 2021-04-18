@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="DEPORTE" directorySegmentName="seg_0" id="025A35E0-B8CB-0D41-0E1C-2541DAC65BF4">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FCA49D92-2F6D-AD55-02CB-94370686E1A6</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DEPORTE_COLOR" id="1AF81168-498C-35F6-AF17-7394E00E0499">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPORTE_NOMBRE" id="2196C7C3-68ED-F023-744F-280E8BEFB04D">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPORTE_IMG" id="79F5BBDF-266E-7462-2471-4FA947134A27">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_DEPORTE" id="CE65A7A9-F97B-BAC5-3023-79038BACA1F0">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_DEPORTE" id="8BDB6CB5-5046-320A-0FC4-362CF1347158">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_DEPORTE" id="132879EE-387D-A7FC-AAAB-5D07FBC9F597">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<existingIndex>8BDB6CB5-5046-320A-0FC4-362CF1347158</existingIndex>
+<indexSegment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

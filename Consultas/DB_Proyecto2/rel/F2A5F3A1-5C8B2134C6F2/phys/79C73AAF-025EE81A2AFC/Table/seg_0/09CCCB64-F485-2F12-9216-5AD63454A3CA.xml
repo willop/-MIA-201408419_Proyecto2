@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="MEMBRESIA" directorySegmentName="seg_0" id="09CCCB64-F485-2F12-9216-5AD63454A3CA">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FCA49D92-2F6D-AD55-02CB-94370686E1A6</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MEMBRESIA_TIPO_MEMBRESIA" id="A7036C2A-8DFF-EDA3-020D-89B72D3B7113">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBRESIA_FIN_MEMBREIA" id="CA7D356A-2CAF-ED57-9D4F-7E94BF27DF59">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBRESIA_ESTADO_MEMBRESIA" id="D01B132D-C961-B9EF-5FDF-CEF0025492CA">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBRESIA_INICIO_MEMBRESIA" id="D1526835-9FD1-B792-7A83-B8A6539CA61B">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_MEMBRESIA" id="E9E0DB14-9ACE-D0BF-2D6A-800F81CE036F">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_MEMBRESIA" id="CF4964A0-468E-3186-9F7E-DC6CA50D9EA9">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_MEMBRESIA" id="17E72299-C3FA-E0DD-1DAC-D6824BA08A59">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<existingIndex>CF4964A0-468E-3186-9F7E-DC6CA50D9EA9</existingIndex>
+<indexSegment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

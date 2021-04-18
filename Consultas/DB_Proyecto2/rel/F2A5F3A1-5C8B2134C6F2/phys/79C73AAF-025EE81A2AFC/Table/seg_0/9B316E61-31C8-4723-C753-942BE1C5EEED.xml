@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CLIENTE" directorySegmentName="seg_0" id="9B316E61-31C8-4723-C753-942BE1C5EEED">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FCA49D92-2F6D-AD55-02CB-94370686E1A6</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CLIENTE_APELLIDO" id="4AAE53C5-1CF4-A867-28A2-ABC836915890">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FK_ID_MEMBRESIA" id="59EC3828-45C9-B4B9-A68B-5762367E96EA">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_USERNAME" id="63F8C72A-7B11-CD26-39D3-D05D50BD2A4C">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_FECHA_REGISTRO" id="6D806AED-B047-7431-CC50-B15E42607557">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_CLIENTE" id="A7D7DCBF-FA74-5482-9751-25641F285C66">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_NOMBRE" id="ACB3678F-E7FB-B1AB-F285-E5249B82E90A">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_PUNTAJE" id="C0A48241-C17B-60CC-8FA4-D5BBEA6899B3">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_FOTO_PERFIL" id="D3671BBF-27FB-C793-8844-0A0F43F20B74">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_CORREO_ELECTRONICO" id="D6FB46FD-8507-40DF-AA54-956E8AF3C5AD">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_PASSWORD" id="E989618C-118A-6E0E-A838-8C4ECA56150B">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_FECHA_NACIMIENTO" id="F396B22A-9D6C-6EE6-0861-2F6FE2EA8CF9">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENTE_CATEGORIA" id="FAFBC821-1DCC-3FF6-985C-0AD478C1B5F4">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_CLIENTE" id="6B4C6CCC-48D1-9469-2862-A4862DDF7617">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_CLIENTE_MEMBRESIA" id="D1398F03-4737-1572-BC60-6344B7726A69">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_CLIENTE" id="C9ABFBEB-A38D-737C-5D98-D72C99AC0FBB">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:56 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<existingIndex>6B4C6CCC-48D1-9469-2862-A4862DDF7617</existingIndex>
+<indexSegment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

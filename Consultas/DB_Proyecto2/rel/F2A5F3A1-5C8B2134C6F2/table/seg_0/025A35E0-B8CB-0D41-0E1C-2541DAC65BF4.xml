@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="025A35E0-B8CB-0D41-0E1C-2541DAC65BF4" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="DEPORTE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>DEPORTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DEPORTE" id="CE65A7A9-F97B-BAC5-3023-79038BACA1F0">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DEPORTE</sourceObjSchema>
+<sourceObjName>ID_DEPORTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="DEPORTE_NOMBRE" id="2196C7C3-68ED-F023-744F-280E8BEFB04D">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DEPORTE</sourceObjSchema>
+<sourceObjName>DEPORTE_NOMBRE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPORTE_IMG" id="79F5BBDF-266E-7462-2471-4FA947134A27">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DEPORTE</sourceObjSchema>
+<sourceObjName>DEPORTE_IMG</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPORTE_COLOR" id="1AF81168-498C-35F6-AF17-7394E00E0499">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DEPORTE</sourceObjSchema>
+<sourceObjName>DEPORTE_COLOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="132879EE-387D-A7FC-AAAB-5D07FBC9F597" name="PK_DEPORTE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_DEPORTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE65A7A9-F97B-BAC5-3023-79038BACA1F0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8BDB6CB5-5046-320A-0FC4-362CF1347158" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_DEPORTE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_DEPORTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:12:52 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE65A7A9-F97B-BAC5-3023-79038BACA1F0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

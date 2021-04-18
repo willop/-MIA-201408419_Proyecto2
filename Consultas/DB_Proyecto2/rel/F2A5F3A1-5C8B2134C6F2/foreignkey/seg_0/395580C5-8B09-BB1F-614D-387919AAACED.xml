@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="395580C5-8B09-BB1F-614D-387919AAACED" containerWithKeyObject="82C850C5-8FDB-97CA-AF96-0E2C16513285" localFKIndex="EA09499E-D9C6-78FD-6290-1243518C838A" name="FK_RANKING_CLIENTE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_RANKING_CLIENTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.CLIENTE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9B316E61-31C8-4723-C753-942BE1C5EEED</referredTableID>
+<keyObject>6B4C6CCC-48D1-9469-2862-A4862DDF7617</keyObject>
+<referredKeyID>6B4C6CCC-48D1-9469-2862-A4862DDF7617</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_CLIENTE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

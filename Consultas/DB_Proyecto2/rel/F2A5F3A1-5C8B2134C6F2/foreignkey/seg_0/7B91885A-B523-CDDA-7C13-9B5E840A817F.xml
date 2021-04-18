@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7B91885A-B523-CDDA-7C13-9B5E840A817F" containerWithKeyObject="AED1A841-B7F0-2BDF-7DCD-84C00B3DAA19" localFKIndex="42643AB7-C06C-751C-61B6-852F26F19B37" name="FK_CHAT_ADMINISTRADOR">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_CHAT_ADMINISTRADOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:05:09 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.ADMINISTRADOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D73659BC-6843-3BB8-AF42-315D18460872</referredTableID>
+<keyObject>E9158A60-0417-EE59-54B8-EA9C225BDAE9</keyObject>
+<referredKeyID>E9158A60-0417-EE59-54B8-EA9C225BDAE9</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_ADMINISTRADOR</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

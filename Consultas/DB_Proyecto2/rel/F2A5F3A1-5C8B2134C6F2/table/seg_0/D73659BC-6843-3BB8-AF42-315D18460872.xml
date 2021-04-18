@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D73659BC-6843-3BB8-AF42-315D18460872" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="ADMINISTRADOR">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>ADMINISTRADOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_ADMINISTRADOR" id="7C572CCA-E75C-2237-8CFD-FB065FEE1ACD">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>ADMINISTRADOR</sourceObjSchema>
+<sourceObjName>ID_ADMINISTRADOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="ADMINISTRADOR_NOMBRE" id="28A73B6E-300E-6295-79DE-391EEB1255D4">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>ADMINISTRADOR</sourceObjSchema>
+<sourceObjName>ADMINISTRADOR_NOMBRE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADMINISTRADOR_APELLIDO" id="F15FBA86-BBB6-1E48-C2A1-3E5795840740">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>ADMINISTRADOR</sourceObjSchema>
+<sourceObjName>ADMINISTRADOR_APELLIDO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADMINISTRADOR_USERNAME" id="EDF19B00-CAF8-55F0-D53D-F59C7CD0DE8D">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>ADMINISTRADOR</sourceObjSchema>
+<sourceObjName>ADMINISTRADOR_USERNAME</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADMINISTRADOR_PASSWORD" id="A7828B12-C477-336E-2659-86A7EDE85662">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>ADMINISTRADOR</sourceObjSchema>
+<sourceObjName>ADMINISTRADOR_PASSWORD</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADMINISTRADOR_FOTO" id="35479172-52AE-621C-94AB-EAD70408CD27">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>ADMINISTRADOR</sourceObjSchema>
+<sourceObjName>ADMINISTRADOR_FOTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="59D15DB1-FC48-A719-D39C-F00D0E902469" name="PK_ADMINISTRADOR">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_ADMINISTRADOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C572CCA-E75C-2237-8CFD-FB065FEE1ACD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E9158A60-0417-EE59-54B8-EA9C225BDAE9" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_ADMINISTRADOR">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_ADMINISTRADOR</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:01:22 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C572CCA-E75C-2237-8CFD-FB065FEE1ACD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

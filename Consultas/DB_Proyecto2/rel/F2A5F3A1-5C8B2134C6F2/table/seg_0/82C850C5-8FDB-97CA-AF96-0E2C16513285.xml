@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="82C850C5-8FDB-97CA-AF96-0E2C16513285" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="RANKING">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>RANKING</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_RANKING" id="F2D9777E-79DA-9070-AE60-D2012FC27F25">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RANKING</sourceObjSchema>
+<sourceObjName>ID_RANKING</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="RANKING_INCREMENTO" id="747C3956-60F7-B145-ED94-ADEBB61C9893">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RANKING</sourceObjSchema>
+<sourceObjName>RANKING_INCREMENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_TEMPORADA" id="F6BA6B36-0F9E-DCFF-C08C-A6C64553B985">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RANKING</sourceObjSchema>
+<sourceObjName>FK_ID_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="60F47D6C-BDBA-451D-9659-0937F31C60EA" referredColumn="12EE36D0-2BA3-AA03-18E6-34438B34809E"/>
+</associations>
+</Column>
+<Column name="FK_ID_CLIENTE" id="14CAD2F9-3C03-8AA2-D18F-D44C6A81F02D">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RANKING</sourceObjSchema>
+<sourceObjName>FK_ID_CLIENTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="395580C5-8B09-BB1F-614D-387919AAACED" referredColumn="A7D7DCBF-FA74-5482-9751-25641F285C66"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C1F39DEE-F367-69C7-E36B-F574FC8E5C31" name="PK_RANKING">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_RANKING</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2D9777E-79DA-9070-AE60-D2012FC27F25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="698A3516-879F-F827-9DFB-5596018E190A" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_RANKING">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_RANKING</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2D9777E-79DA-9070-AE60-D2012FC27F25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EA09499E-D9C6-78FD-6290-1243518C838A" name="FK_RANKING_CLIENTE">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14CAD2F9-3C03-8AA2-D18F-D44C6A81F02D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F47FF84B-C78E-CC0E-99D4-E15E44D566C4" name="FK_RANKING_TEMPORADA">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:10 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6BA6B36-0F9E-DCFF-C08C-A6C64553B985"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

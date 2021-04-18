@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="HISTORIAL_PREDICCION_EVENTO" directorySegmentName="seg_0" id="B04B6F99-3645-8559-0FFC-62099B47D6B6">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FCA49D92-2F6D-AD55-02CB-94370686E1A6</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID_HISTORIAL_PREDICCION_EVENTO" id="3E90D445-C7B4-0D32-1094-42A68BC455D1">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="FK_ID_PREDICCION" id="BFDBFBB8-0ABF-DBBD-CB55-C958591BDB62">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FK_ID_EVENTO" id="DED4C5FF-D8B6-5BAC-C4A1-12EC0B71E6E0">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_HISTORIAL_PREDICCION_EVENTO" id="28B93161-4CF0-07BC-278B-C37C65DBCC3C">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_HISTORIAL_EVENTO" id="2E3B0632-9CDB-2EA5-64E8-1B5A69750FAE">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:26 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_HISTORIAL_PREDICCION" id="8B0DF6EF-C8E4-49D6-5278-0DBFE3F9332B">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:26 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_HISTORIAL_PREDICCION_EVENTO" id="588328C7-0A32-FED8-E260-D6953A90BB98">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<existingIndex>28B93161-4CF0-07BC-278B-C37C65DBCC3C</existingIndex>
+<indexSegment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

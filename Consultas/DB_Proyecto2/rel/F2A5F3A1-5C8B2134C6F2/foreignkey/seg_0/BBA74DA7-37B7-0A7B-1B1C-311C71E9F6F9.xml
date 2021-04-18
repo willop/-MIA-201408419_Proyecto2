@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BBA74DA7-37B7-0A7B-1B1C-311C71E9F6F9" containerWithKeyObject="0DFD86F5-CC5D-417E-CBA8-5E37EDB045F8" localFKIndex="E3D5BF5D-2E13-87AC-EB8B-0A529F9A42AE" name="FK_PARITDO_EQUIPO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_PARITDO_EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.EQUIPO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8A7D9555-0642-0465-D075-89381B4F6DA2</referredTableID>
+<keyObject>C5B50362-30FB-6DDE-AF44-2D619B0E0E8D</keyObject>
+<referredKeyID>C5B50362-30FB-6DDE-AF44-2D619B0E0E8D</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_EQUIPO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

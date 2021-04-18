@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="RECOMPENSA" directorySegmentName="seg_0" id="DA88460D-2746-6842-5DC5-A3FC3073AE0E">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FCA49D92-2F6D-AD55-02CB-94370686E1A6</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FK_ID_RANKING" id="3931DB9B-FE8A-4CD1-48D1-DE9EB6E91706">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_RECOMPENSA_TOTAL" id="5AC06507-8750-6611-9067-2D0786515560">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_P3" id="9DEBE44B-FDB2-23FE-3191-996E648E478F">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_CANTIDAD_RECOMPENSA" id="AE4772B4-AF59-313F-C230-DF27189C81BD">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_P0" id="B3C617F9-16BA-CD40-9F3B-8D45C1ABAA90">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_PORCENTAJE_INCREMENTEO" id="B572BFA8-BFA0-A2D7-9D9A-B866A0FC0A9A">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_P10" id="D36A5E8B-E785-CA68-46ED-DFC63052D064">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RECOMPENSA_P5" id="E0CB7E38-D685-8DE2-26EA-6A50C262D6DB">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_RECOMPENSA" id="F414EB6B-6A59-67F3-5FB6-95A2AB45B9FE">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_RECOMPENSA" id="F5C4F130-1314-3DCE-FC6B-7BF56318E1DB">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<schemaObject>171DB6D3-3F8F-E219-C03A-90E4DA594DA0</schemaObject>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_RECOMPENSA_RANKING" id="E3A4BDED-B790-9A4D-3458-5F23B1D6B65F">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_RECOMPENSA" id="22101C21-4728-2211-CC08-0858D26DC63A">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<segment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</segment>
+<tableSpace>66795CCF-23A3-8EDA-2B23-D1DF8C078F3F</tableSpace>
+<existingIndex>F5C4F130-1314-3DCE-FC6B-7BF56318E1DB</existingIndex>
+<indexSegment>F89906C4-709E-C10E-A8A5-1CE8F84EC395</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

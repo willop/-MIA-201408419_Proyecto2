@@ -1,0 +1,120 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B04B6F99-3645-8559-0FFC-62099B47D6B6" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="HISTORIAL_PREDICCION_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>HISTORIAL_PREDICCION_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_HISTORIAL_PREDICCION_EVENTO" id="3E90D445-C7B4-0D32-1094-42A68BC455D1">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>HISTORIAL_PREDICCION_EVENTO</sourceObjSchema>
+<sourceObjName>ID_HISTORIAL_PREDICCION_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="FK_ID_PREDICCION" id="BFDBFBB8-0ABF-DBBD-CB55-C958591BDB62">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>HISTORIAL_PREDICCION_EVENTO</sourceObjSchema>
+<sourceObjName>FK_ID_PREDICCION</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EAB61895-D27E-7C05-2C0C-D621B1AC45D6" referredColumn="77D78BF9-83B5-5C07-A6F7-F0746D2A8F15"/>
+</associations>
+</Column>
+<Column name="FK_ID_EVENTO" id="DED4C5FF-D8B6-5BAC-C4A1-12EC0B71E6E0">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>HISTORIAL_PREDICCION_EVENTO</sourceObjSchema>
+<sourceObjName>FK_ID_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9A32E5A0-99BF-6718-DB7D-29D71139A9A3" referredColumn="9E275980-4C1D-F732-2C13-2C374F72C130"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="588328C7-0A32-FED8-E260-D6953A90BB98" name="PK_HISTORIAL_PREDICCION_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_HISTORIAL_PREDICCION_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E90D445-C7B4-0D32-1094-42A68BC455D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="28B93161-4CF0-07BC-278B-C37C65DBCC3C" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_HISTORIAL_PREDICCION_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_HISTORIAL_PREDICCION_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:25 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E90D445-C7B4-0D32-1094-42A68BC455D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E3B0632-9CDB-2EA5-64E8-1B5A69750FAE" name="FK_HISTORIAL_EVENTO">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:26 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DED4C5FF-D8B6-5BAC-C4A1-12EC0B71E6E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8B0DF6EF-C8E4-49D6-5278-0DBFE3F9332B" name="FK_HISTORIAL_PREDICCION">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:26 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BFDBFBB8-0ABF-DBBD-CB55-C958591BDB62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D484A564-31F6-315F-9237-3C5FD4192253" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PREDICCION">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PREDICCION</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PREDICCION" id="77D78BF9-83B5-5C07-A6F7-F0746D2A8F15">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PREDICCION</sourceObjSchema>
+<sourceObjName>ID_PREDICCION</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="PREDICCION_RESULTADO" id="2E2D66B7-43DD-C7B9-9D98-CCDEC3BCAD1A">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PREDICCION</sourceObjSchema>
+<sourceObjName>PREDICCION_RESULTADO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PREDICCION_LOCAL" id="A742DF2A-938B-679F-3C79-23035F094462">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PREDICCION</sourceObjSchema>
+<sourceObjName>PREDICCION_LOCAL</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PREDICCION_VISITANTE" id="AE63B688-5442-7AF7-2028-A607B9C40CDD">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PREDICCION</sourceObjSchema>
+<sourceObjName>PREDICCION_VISITANTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_CLIENTE" id="D52B9996-764B-35B9-2769-A0E49887E553">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>PREDICCION</sourceObjSchema>
+<sourceObjName>FK_ID_CLIENTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="35CD8F18-426D-5FA0-1095-962D948DB4FD" referredColumn="A7D7DCBF-FA74-5482-9751-25641F285C66"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B62E3745-90F0-3CA4-D042-F19C53851AC2" name="PK_PREDICCION">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_PREDICCION</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:55 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="77D78BF9-83B5-5C07-A6F7-F0746D2A8F15"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F48A056F-7C98-E451-3E9C-039D0AA23BCF" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_PREDICCION">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_PREDICCION</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:54 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="77D78BF9-83B5-5C07-A6F7-F0746D2A8F15"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E75CEBC6-F84F-1A6E-BE44-BD9F4E1879D0" name="FK_PREDICCION_CLIENTE">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:55 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D52B9996-764B-35B9-2769-A0E49887E553"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09CCCB64-F485-2F12-9216-5AD63454A3CA" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="MEMBRESIA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_MEMBRESIA" id="E9E0DB14-9ACE-D0BF-2D6A-800F81CE036F">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>MEMBRESIA</sourceObjSchema>
+<sourceObjName>ID_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="MEMBRESIA_TIPO_MEMBRESIA" id="A7036C2A-8DFF-EDA3-020D-89B72D3B7113">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>MEMBRESIA</sourceObjSchema>
+<sourceObjName>MEMBRESIA_TIPO_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7 BYTE</dataTypeSize>
+<ownDataTypeParameters>7 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBRESIA_INICIO_MEMBRESIA" id="D1526835-9FD1-B792-7A83-B8A6539CA61B">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>MEMBRESIA</sourceObjSchema>
+<sourceObjName>MEMBRESIA_INICIO_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBRESIA_FIN_MEMBREIA" id="CA7D356A-2CAF-ED57-9D4F-7E94BF27DF59">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>MEMBRESIA</sourceObjSchema>
+<sourceObjName>MEMBRESIA_FIN_MEMBREIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBRESIA_ESTADO_MEMBRESIA" id="D01B132D-C961-B9EF-5FDF-CEF0025492CA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>MEMBRESIA</sourceObjSchema>
+<sourceObjName>MEMBRESIA_ESTADO_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="17E72299-C3FA-E0DD-1DAC-D6824BA08A59" name="PK_MEMBRESIA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9E0DB14-9ACE-D0BF-2D6A-800F81CE036F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CF4964A0-468E-3186-9F7E-DC6CA50D9EA9" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_MEMBRESIA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_MEMBRESIA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:43 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9E0DB14-9ACE-D0BF-2D6A-800F81CE036F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

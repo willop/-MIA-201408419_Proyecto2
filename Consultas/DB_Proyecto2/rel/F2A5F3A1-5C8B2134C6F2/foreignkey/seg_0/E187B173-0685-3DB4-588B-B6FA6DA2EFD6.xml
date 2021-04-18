@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E187B173-0685-3DB4-588B-B6FA6DA2EFD6" containerWithKeyObject="6C47C4D7-6BB3-CAD4-5060-21544C8F6B4F" localFKIndex="A90048B0-4F6C-5FEC-8A44-97596885B887" name="FK_JORNADA_TEMPORADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>FK_JORNADA_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<referredTableLongName>WILLOP.TEMPORADA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>307AC7F0-B87A-29D0-AD2B-D1B60554A912</referredTableID>
+<keyObject>7947204D-C116-77AE-F200-B5A605440EA6</keyObject>
+<referredKeyID>7947204D-C116-77AE-F200-B5A605440EA6</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_TEMPORADA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6C47C4D7-6BB3-CAD4-5060-21544C8F6B4F" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="JORNADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>JORNADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_JORNADA" id="60EAAD01-3416-B5C1-F38F-4B6A4A8B2DA6">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>JORNADA</sourceObjSchema>
+<sourceObjName>ID_JORNADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="JORNADA_ESTADO" id="5FD3E869-E140-C150-5C59-EB7F3D7515F0">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>JORNADA</sourceObjSchema>
+<sourceObjName>JORNADA_ESTADO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JORNADA_FASE" id="59D60FB4-456F-A875-C51C-D78DD2715FF2">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>JORNADA</sourceObjSchema>
+<sourceObjName>JORNADA_FASE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JORNADA_FECHA_INICIO" id="1ECB9794-8A84-6552-C1EA-810E4F0B52B0">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>JORNADA</sourceObjSchema>
+<sourceObjName>JORNADA_FECHA_INICIO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JORNADA_FECHAR_FIN" id="A910F5EF-06E9-E8FA-4FAA-74288EA62ADD">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>JORNADA</sourceObjSchema>
+<sourceObjName>JORNADA_FECHAR_FIN</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_TEMPORADA" id="8F419733-2D44-5E1C-48A5-34AB1C092B1E">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>JORNADA</sourceObjSchema>
+<sourceObjName>FK_ID_TEMPORADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E187B173-0685-3DB4-588B-B6FA6DA2EFD6" referredColumn="12EE36D0-2BA3-AA03-18E6-34438B34809E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D82B398C-00BF-F851-F605-F38E932D4D24" name="PK_JORNADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_JORNADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60EAAD01-3416-B5C1-F38F-4B6A4A8B2DA6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4E01BC17-AB07-0278-C5C5-470C15D6A3BA" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_JORNADA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_JORNADA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60EAAD01-3416-B5C1-F38F-4B6A4A8B2DA6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A90048B0-4F6C-5FEC-8A44-97596885B887" name="FK_JORNADA_TEMPORADA">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:39 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F419733-2D44-5E1C-48A5-34AB1C092B1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

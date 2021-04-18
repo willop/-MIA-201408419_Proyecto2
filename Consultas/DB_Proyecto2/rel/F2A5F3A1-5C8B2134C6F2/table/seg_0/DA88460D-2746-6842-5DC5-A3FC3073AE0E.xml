@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA88460D-2746-6842-5DC5-A3FC3073AE0E" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="RECOMPENSA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>RECOMPENSA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_RECOMPENSA" id="F414EB6B-6A59-67F3-5FB6-95A2AB45B9FE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>ID_RECOMPENSA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="RECOMPENSA_CANTIDAD_RECOMPENSA" id="AE4772B4-AF59-313F-C230-DF27189C81BD">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_CANTIDAD_RECOMPENSA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECOMPENSA_RECOMPENSA_TOTAL" id="5AC06507-8750-6611-9067-2D0786515560">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_RECOMPENSA_TOTAL</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECOMPENSA_PORCENTAJE_INCREMENTEO" id="B572BFA8-BFA0-A2D7-9D9A-B866A0FC0A9A">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_PORCENTAJE_INCREMENTEO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECOMPENSA_P10" id="D36A5E8B-E785-CA68-46ED-DFC63052D064">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_P10</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECOMPENSA_P5" id="E0CB7E38-D685-8DE2-26EA-6A50C262D6DB">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_P5</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECOMPENSA_P3" id="9DEBE44B-FDB2-23FE-3191-996E648E478F">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_P3</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECOMPENSA_P0" id="B3C617F9-16BA-CD40-9F3B-8D45C1ABAA90">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>RECOMPENSA_P0</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_RANKING" id="3931DB9B-FE8A-4CD1-48D1-DE9EB6E91706">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>RECOMPENSA</sourceObjSchema>
+<sourceObjName>FK_ID_RANKING</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BCF4BC26-DCE0-F55F-76D9-9887F0D3BDCE" referredColumn="F2D9777E-79DA-9070-AE60-D2012FC27F25"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22101C21-4728-2211-CC08-0858D26DC63A" name="PK_RECOMPENSA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_RECOMPENSA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F414EB6B-6A59-67F3-5FB6-95A2AB45B9FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F5C4F130-1314-3DCE-FC6B-7BF56318E1DB" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_RECOMPENSA">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_RECOMPENSA</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F414EB6B-6A59-67F3-5FB6-95A2AB45B9FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E3A4BDED-B790-9A4D-3458-5F23B1D6B65F" name="FK_RECOMPENSA_RANKING">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:03:15 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3931DB9B-FE8A-4CD1-48D1-DE9EB6E91706"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

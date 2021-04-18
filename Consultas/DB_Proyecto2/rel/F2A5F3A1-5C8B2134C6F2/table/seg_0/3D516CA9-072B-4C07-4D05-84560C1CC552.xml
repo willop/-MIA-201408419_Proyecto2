@@ -1,0 +1,120 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3D516CA9-072B-4C07-4D05-84560C1CC552" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="DETALLE_DEPORTE_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>DETALLE_DEPORTE_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:07 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DETALLE_DEPORTE_EVENTO" id="F360C983-D24E-D899-A91C-C7CF7F370BA8">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DETALLE_DEPORTE_EVENTO</sourceObjSchema>
+<sourceObjName>ID_DETALLE_DEPORTE_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:07 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="FK_ID_EVENTO" id="13E14B0F-8846-6452-98F7-F1EA4C073BE9">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DETALLE_DEPORTE_EVENTO</sourceObjSchema>
+<sourceObjName>FK_ID_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:07 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="15B6D7D9-F2D5-EF04-12B6-3F1A4EEDBF66" referredColumn="9E275980-4C1D-F732-2C13-2C374F72C130"/>
+</associations>
+</Column>
+<Column name="FK_ID_DEPORTE" id="B2989878-EA68-754F-E5AB-FD5204FF7619">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>DETALLE_DEPORTE_EVENTO</sourceObjSchema>
+<sourceObjName>FK_ID_DEPORTE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:07 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D342AC31-2F26-354E-7990-AA8E9074A1C9" referredColumn="CE65A7A9-F97B-BAC5-3023-79038BACA1F0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="785C3177-79D1-BCF8-7FD2-B52C4137A8F3" name="PK_MDETALLE_DEPORTE_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_MDETALLE_DEPORTE_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:07 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F360C983-D24E-D899-A91C-C7CF7F370BA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC0E2495-F48A-9E2F-EBC8-A7BF49A85286" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_MDETALLE_DEPORTE_EVENTO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_MDETALLE_DEPORTE_EVENTO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:07 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F360C983-D24E-D899-A91C-C7CF7F370BA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="41A90BAD-5A0A-97C4-18F3-F19B7F44C6E3" name="FK_DEPORTE">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:08 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2989878-EA68-754F-E5AB-FD5204FF7619"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="54D6D2B8-4787-B380-80B9-E71D3D3B17D9" name="FK_EVENTO">
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:08 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="13E14B0F-8846-6452-98F7-F1EA4C073BE9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

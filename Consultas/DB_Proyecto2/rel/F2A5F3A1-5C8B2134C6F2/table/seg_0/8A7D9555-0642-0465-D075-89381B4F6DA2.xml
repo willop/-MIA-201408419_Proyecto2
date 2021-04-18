@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8A7D9555-0642-0465-D075-89381B4F6DA2" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="EQUIPO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:13 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_EQUIPO" id="C3D252D9-92EE-713E-C5BA-978B8EF1242C">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EQUIPO</sourceObjSchema>
+<sourceObjName>ID_EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:13 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<defaultOntNull>true</defaultOntNull>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="EQUIPO_NOMBRE" id="BC210BF5-034C-F308-332F-7AEF6172727C">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EQUIPO</sourceObjSchema>
+<sourceObjName>EQUIPO_NOMBRE</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:13 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_ID_EQUIPO" id="1A6B632A-110A-0453-ABE8-8921248852DE">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>EQUIPO</sourceObjSchema>
+<sourceObjName>FK_ID_EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:13 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F3979BD9-F373-DEC8-B640-459F67B7832E" name="PK_EQUIPO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:13 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C3D252D9-92EE-713E-C5BA-978B8EF1242C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C5B50362-30FB-6DDE-AF44-2D619B0E0E8D" schemaObject="171DB6D3-3F8F-E219-C03A-90E4DA594DA0" name="PK_EQUIPO">
+<sourceConnName>musing_black</sourceConnName>
+<sourceObjSchema>WILLOP</sourceObjSchema>
+<sourceObjName>PK_EQUIPO</sourceObjName>
+<createdBy>willop</createdBy>
+<createdTime>2021-04-18 00:02:13 UTC</createdTime>
+<ownerDesignName>DB_Proyecto2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C3D252D9-92EE-713E-C5BA-978B8EF1242C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

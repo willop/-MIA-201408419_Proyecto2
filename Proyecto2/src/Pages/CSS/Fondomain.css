@@ -1,0 +1,114 @@
+
+
+body {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  color: #000;
+  line-height: 1.6;
+  position: relative;
+  font-family: sans-serif;
+  overflow: hidden;
+  
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to left ,rgb(83, 165, 66),rgb(69, 204, 42),rgb(83, 165, 66));
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(38, 12, 12);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  animation: animacionx 5s infinite;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+ul.hover{
+  background-position: 50%;
+}
+
+@keyframes animacionx{
+  0% {color: orange;}
+  25% {color: red;}
+  50% {color: tomato;}
+  75% {color: black;}
+  100% {color:yellow;}
+}
+
+
+/*  **************************IMAGEN DE FONDO ***********************/
+#fondo-pantalla{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* ***************************** Login ********************************* */
+#Contenedor-login{
+  background-color: white;
+  display: inline-block;
+  height: 700px;
+  width: 400px;
+  visibility: visible;
+  position: absolute;
+  top: 120px;
+  left: 10%;
+  border-radius: 10px;
+
+}
+
+
+#label-nombre{
+  position:absolute;
+  left:40%;
+  top:10%;
+
+}
+
+#label-user{
+  position:absolute;
+  left:44%;
+  top:20%;
+
+}
+
+#text-user{
+  position:absolute;
+  top:25%;
+  left:27%;
+}
+
+#label-password{
+  position:absolute;
+  left:40%;
+  top:35%;
+}
+
+#text-password{
+  position:absolute;
+  top:40%;
+left:27%;
+}
+
+#boton-login{
+  position:absolute;
+  top:50%;
+  left:45%;
+}

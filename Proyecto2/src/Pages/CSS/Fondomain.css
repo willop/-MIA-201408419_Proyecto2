@@ -61,8 +61,12 @@ ul.hover{
 
 
 /* ***************************** Login ********************************* */
+a{
+  text-decoration: none;
+}
+
 #Contenedor-login{
-  background-color: white;
+  background-color: rgb(170, 101, 56);
   display: inline-block;
   height: 700px;
   width: 400px;
@@ -74,19 +78,24 @@ ul.hover{
 
 }
 
+input{
+  border-radius: 7px;
+  height: 20px;
+  border-color: transparent;
+}
+
 
 #label-nombre{
   position:absolute;
-  left:40%;
+  left:38%;
   top:10%;
 
 }
 
 #label-user{
   position:absolute;
-  left:44%;
+  left:43%;
   top:20%;
-
 }
 
 #text-user{
@@ -97,7 +106,7 @@ ul.hover{
 
 #label-password{
   position:absolute;
-  left:40%;
+  left:42%;
   top:35%;
 }
 
@@ -107,8 +116,81 @@ ul.hover{
 left:27%;
 }
 
-#boton-login{
-  position:absolute;
-  top:50%;
-  left:45%;
+.button-container-1{
+  position: relative;
+  width: 100px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6vh;
+  overflow: hidden;
+  border: 1px solid;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  top: 25%;
 }
+
+.button-container-1 button {
+  width: 101%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: #000;
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  -webkit-mask-size: 2300% 100%;
+  mask-size: 2300% 100%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(22) forwards;
+  animation: ani2 0.7s steps(22) forwards;
+}
+.button-container-1 button:hover {
+  -webkit-animation: ani 0.7s steps(22) forwards;
+  animation: ani 0.7s steps(22) forwards;
+}
+
+.mas {
+  position: absolute;
+  color: #000;
+  text-align: center;
+  width: 101%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  position: absolute;
+  font-size: 20px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+
+
+

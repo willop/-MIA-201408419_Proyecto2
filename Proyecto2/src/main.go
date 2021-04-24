@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"encoding/json"
 	//"os"
+	"io/ioutil"
 	//"path/filepath"
 	"database/sql"
 	"log"
@@ -19,19 +20,29 @@ type Estructura struct{
 	Estado_color string
 }
 
+type Login struct {
+	USERNAME string `json:"username"`
+	PASSWORD string	`json:"password"`
+}
+
+
 
 
 /*********************************************** fin estructuras *****************************/
 
-func GetHomeEndPoint(w http.ResponseWriter, req *http.Request){
+func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	//fmt.Fprintf(w,"Hola mundo, como estas, todo bien" , html.escapeString(r.URL.Path))
-	template, err := template.ParseFiles("./Pages/index2.js")
-	if err != nil{
-		fmt.Fprintf(w,"Pagina no encontrada")
-	}else{
-		template.Execute(w, nil)
-	}
-}
+	var datos Login
+	reqBody, _ := ioutil.ReadAll(req.Body)
+	json.Unmarshal(reqBody, &datos)
+	println(datos.USERNAME)
+	println(datos.PASSWORD)
+	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Access-Control-Allow-Origin","*")
+	w.WriteHeader(http.StatusOK)
+	//para responder a la pagina
+	w.Write([]byte(reqBody))
+}	
 
 func GetLoginEndPoint(w http.ResponseWriter, req *http.Request){
 
@@ -53,7 +64,6 @@ func Coneccion_Oracle ()(db *sql.DB, e error){
 	return db, nil
 	//fmt.Println("Coneccion exitosa")
 }
-
 func Consulta1()([]Estructura, error){
 	
 	Eventostabla := []Estructura{}
@@ -87,8 +97,6 @@ func Consulta1()([]Estructura, error){
 	fmt.Println(Eventostabla)
 	return Eventostabla, nil
 }
-
-
 func GetConsulta1(w http.ResponseWriter, r *http.Request) {
 	Eventostabla, err := Consulta1()
 	
@@ -116,7 +124,7 @@ func main(){
 
 	//---------------------NOTA NO DIRECCIONES CON HIJOS --------------------------
 	//------------------------------- RUTAS --------------------------------------
-	router.HandleFunc("/home",GetHomeEndPoint).Methods("GET")
+	router.HandleFunc("/Api",PostHomeEndPoint).Methods("POST")
 	router.HandleFunc("/consulta",GetConsulta1).Methods("GET")
 	router.HandleFunc("/login",GetLoginEndPoint).Methods("GET")	//cuando ingrese a esta direccion
 	//------------------------------------ Servidor ----------------------------------

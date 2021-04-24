@@ -1,0 +1,40 @@
+
+#Login-boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Login{
+    border-radius: 15px;
+    background-color: rgb(34, 95, 4);
+    position: fixed;
+    height: 50%;
+    width: 500px;  
+    left: 150px;
+    top:270px;
+}
+
+#Logo-login{
+    position: relative;
+    left: 29%;
+    height: 150px;
+    width:auto;
+}
+
+body{
+    background-image: url("./Img/Mesafondo.jpg");
+}
+
+#olvide-password{
+    color:red;
+    position: fixed;
+    left: 180px;
+}
+
+#olvide-password:hover{
+    color:red;
+    border-color: royalblue;
+    border-style: double;
+    border-radius: 5px;
+}

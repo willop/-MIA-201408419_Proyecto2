@@ -40,8 +40,23 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	w.Header().Set("Content-Type","application/json")
 	w.Header().Set("Access-Control-Allow-Origin","*")
 	w.WriteHeader(http.StatusOK)
+	//w.Write([]byte(reqBody))
+
+
+	
+	Eventostabla, err := Consulta1()
+	
+	if err != nil {
+		fmt.Printf("Error al obtener los eventos a colores")
+	} else{
+		fmt.Println(Eventostabla)
+		json.NewEncoder(w).Encode(Eventostabla)
+		//enc := json.NewEncoder(os.Stdout)
+		//enc.Encode(eventostabla)
+		//crear_json, _ := json.Marshal(eventostabla)
+	}
 	//para responder a la pagina
-	w.Write([]byte(reqBody))
+
 }	
 
 func GetLoginEndPoint(w http.ResponseWriter, req *http.Request){
@@ -105,7 +120,6 @@ func GetConsulta1(w http.ResponseWriter, r *http.Request) {
 	} else{
 		fmt.Println(Eventostabla)
 		json.NewEncoder(w).Encode(Eventostabla)
-		//fmt.Fprintf(w,)
 		//enc := json.NewEncoder(os.Stdout)
 		//enc.Encode(eventostabla)
 		//crear_json, _ := json.Marshal(eventostabla)

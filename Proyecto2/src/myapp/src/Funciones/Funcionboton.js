@@ -5,10 +5,12 @@ async function Login(param1,param2){
     var url = 'http://localhost:4000/Api';
 
     //info de que le voy a mandar
-    var info = {'USERNAME':''+param1, 'PASSWORD':''+param2}
+    var info = {'user':''+param1, 'pass':''+param2}
     fetch(url,{
         method:'POST',
+        redirect:"http://www.google.com",
         body: JSON.stringify(info)
+        
     })
     //.then(res=> res.json())
     .then(response => response.json())

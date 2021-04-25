@@ -20,9 +20,14 @@ type Estructura struct{
 	Estado_color string
 }
 
-type Login struct {
-	USERNAME string `json:"username"`
-	PASSWORD string	`json:"password"`
+
+type return_Login struct{
+	Tipo_rol int
+}
+
+type req_Login struct {
+	USERNAME string `json:"user"`
+	PASSWORD string	`json:"pass"`
 }
 
 
@@ -32,7 +37,7 @@ type Login struct {
 
 func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	//fmt.Fprintf(w,"Hola mundo, como estas, todo bien" , html.escapeString(r.URL.Path))
-	var datos Login
+	var datos req_Login
 	reqBody, _ := ioutil.ReadAll(req.Body)
 	json.Unmarshal(reqBody, &datos)
 	println(datos.USERNAME)
@@ -44,13 +49,13 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 
 
 	
-	Eventostabla, err := Consulta1()
+	retornologin, err := ConsultaLogin(datos.USERNAME,datos.PASSWORD)
 	
 	if err != nil {
-		fmt.Printf("Error al obtener los eventos a colores")
+		fmt.Printf("Error al obtener el tipo")
 	} else{
-		fmt.Println(Eventostabla)
-		json.NewEncoder(w).Encode(Eventostabla)
+		fmt.Println(retornologin)
+		json.NewEncoder(w).Encode(retornologin)
 		//enc := json.NewEncoder(os.Stdout)
 		//enc.Encode(eventostabla)
 		//crear_json, _ := json.Marshal(eventostabla)
@@ -79,6 +84,40 @@ func Coneccion_Oracle ()(db *sql.DB, e error){
 	return db, nil
 	//fmt.Println("Coneccion exitosa")
 }
+
+//funcion para hacer login
+
+func ConsultaLogin(user,pass string)([]return_Login,error){
+	Retorno := []return_Login{}
+	db,err := Coneccion_Oracle()
+	if err !=  nil{
+		return nil, err
+	}
+	defer db.Close()
+	var consulta string
+	consulta = "select cliente.cliente_rol from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
+	rows, err := db.Query("select cliente.cliente_rol from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"'")
+	if err != nil {
+		log.Fatal("Error fetching user data\n", err)
+	}
+	defer rows.Close()
+
+	var tiporol return_Login
+	for rows.Next(){
+		err = rows.Scan(&tiporol.Tipo_rol)
+		if err != nil{
+			return nil, err
+		}
+		Retorno = append(Retorno,tiporol)
+	}
+	fmt.Println("Resultado de la consulta login: "+consulta)
+	fmt.Println(Retorno)
+	return Retorno,nil
+
+}
+
+
+
 func Consulta1()([]Estructura, error){
 	
 	Eventostabla := []Estructura{}
@@ -88,8 +127,6 @@ func Consulta1()([]Estructura, error){
 		return nil, err
 	}
 	defer db.Close()
-
-
 
 	rows, err := db.Query("select ID_estado_evento,Estado_evento_color from estado_eventodeportivo")
 	if err != nil {

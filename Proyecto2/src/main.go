@@ -22,7 +22,10 @@ type Estructura struct{
 
 
 type return_Login struct{
+	ID_usuario int
 	Tipo_rol int
+	Username string
+	
 }
 
 type req_Login struct {
@@ -50,18 +53,26 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 
 	
 	retornologin, err := ConsultaLogin(datos.USERNAME,datos.PASSWORD)
-	
+		
 	if err != nil {
-		fmt.Printf("Error al obtener el tipo")
+		var vaciovec return_Login
+			vaciovec.ID_usuario=0; 
+			vaciovec.Tipo_rol=-2; //error en consulta
+			vaciovec.Username="";
+			json.NewEncoder(w).Encode(vaciovec)
 	} else{
+		if len(retornologin)==0{
+			var vaciovec return_Login
+			vaciovec.ID_usuario=0; 
+			vaciovec.Tipo_rol=-1; //usuario no existe
+			vaciovec.Username="";
+			json.NewEncoder(w).Encode(vaciovec)
+		}else{
+			//fmt.Println("no vacio: ")
+			json.NewEncoder(w).Encode(retornologin[0])
+		}
 		fmt.Println(retornologin)
-		json.NewEncoder(w).Encode(retornologin)
-		//enc := json.NewEncoder(os.Stdout)
-		//enc.Encode(eventostabla)
-		//crear_json, _ := json.Marshal(eventostabla)
 	}
-	//para responder a la pagina
-
 }	
 
 func GetLoginEndPoint(w http.ResponseWriter, req *http.Request){
@@ -95,8 +106,8 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 	}
 	defer db.Close()
 	var consulta string
-	consulta = "select cliente.cliente_rol from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
-	rows, err := db.Query("select cliente.cliente_rol from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"'")
+	consulta = "select cliente.cliente_rol, cliente.id_cliente,cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
+	rows, err := db.Query("select cliente.cliente_rol, cliente.id_cliente, cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"'")
 	if err != nil {
 		log.Fatal("Error fetching user data\n", err)
 	}
@@ -104,7 +115,7 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 
 	var tiporol return_Login
 	for rows.Next(){
-		err = rows.Scan(&tiporol.Tipo_rol)
+		err = rows.Scan(&tiporol.ID_usuario,&tiporol.Tipo_rol,&tiporol.Username)
 		if err != nil{
 			return nil, err
 		}

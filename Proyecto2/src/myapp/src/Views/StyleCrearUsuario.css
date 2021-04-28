@@ -1,0 +1,20 @@
+#fondo_divx{
+    min-height: 100vh;
+    background-color: teal;
+}
+
+#Contenedor_formulario{
+    position: fixed;
+    background-color:thistle;
+    top: 10%;
+    left: 15%;
+    width: 75%;
+    height: 80%;
+}
+
+#boton_crear_usuario{
+    position: relative;
+    top: 15%;
+    left:43%;
+    
+}

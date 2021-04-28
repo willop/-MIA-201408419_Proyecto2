@@ -22,8 +22,16 @@
     width:auto;
 }
 
-body{
-    background-image: url("./Img/Mesafondo.jpg");
+#fondo-div-login{
+    min-height: 100vh;
+    background-image: url("Img/Mesafondo.jpg");
+    background-size: cover;
+    /*background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: center center;
+    /*background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
 }
 
 #olvide-password{

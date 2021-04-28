@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './Views/Login';
 import Admin from './Views/Administrador'
+import CrearUsuario from './Views/CrearUsuario'
 import {
   Switch,
   Route,
@@ -14,10 +15,17 @@ function App() {
   return (
     <BrowserRouter>
       <Route
-        path='/login'
+        exact path='/login'
         render={(props) => <Login {...props}/>}
       />
-      <Redirect from ="/" to ='/login' />
+      <Route
+        exact path='/Administrador'
+        render={(props) => <Admin {...props}/>}
+      />
+      <Route
+        exact path='/CrearUsuario'
+        render={(props) => <CrearUsuario {...props}/>}
+      />
     </BrowserRouter>
   );
 }

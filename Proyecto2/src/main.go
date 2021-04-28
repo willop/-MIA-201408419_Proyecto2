@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"encoding/json"
+	"time"
 	//"os"
 	"io/ioutil"
 	//"path/filepath"
@@ -15,23 +16,43 @@ import (
 )
 
 /********************************* Estructuras para las bases de datos **************************/
+type return_Login struct{
+	ID_usuario int
+	Tipo_rol int
+	Username string
+}
+
+type return_nuevoUsuario struct{
+	Confirmacion int
+}
+
+
+//********************* Estructuras desde react *********************************
+//prueba
 type Estructura struct{
 	Id_estado int
 	Estado_color string
 }
 
-
-type return_Login struct{
-	ID_usuario int
-	Tipo_rol int
-	Username string
-	
-}
-
+// Login
 type req_Login struct {
 	USERNAME string `json:"user"`
 	PASSWORD string	`json:"pass"`
 }
+
+//  Insert
+type req_Create_new_User struct{
+	Create_Username 			string  `json:"username"`
+	Create_password 			string	`json:"password"`
+	Create_Nombre 				string	`json:"nombre"`
+	Create_Apellido 			string	`json:"apellido"`
+	Create_fecha_nacimiento 	string	`json:"fecha_nacimiento"`
+	Create_fecha_registro		string	
+	Create_Correo_electronico 	string	`json:"correo"`
+	Create_foto_perfil			string	
+	Create_cliente_rol			int		
+}
+
 
 
 
@@ -48,10 +69,7 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	w.Header().Set("Content-Type","application/json")
 	w.Header().Set("Access-Control-Allow-Origin","*")
 	w.WriteHeader(http.StatusOK)
-	//w.Write([]byte(reqBody))
 
-
-	
 	retornologin, err := ConsultaLogin(datos.USERNAME,datos.PASSWORD)
 		
 	if err != nil {
@@ -74,6 +92,46 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 		fmt.Println(retornologin)
 	}
 }	
+
+func PostCrearUsuario(w http.ResponseWriter, req *http.Request){
+	var datos req_Create_new_User
+	reqBody,_ := ioutil.ReadAll(req.Body)
+	json.Unmarshal(reqBody, &datos)
+	/*
+	fmt.Println(datos.Create_Username)
+	fmt.Println(datos.Create_password)
+	fmt.Println(datos.Create_Nombre)
+	fmt.Println(datos.Create_Apellido)
+	fmt.Println(datos.Create_fecha_nacimiento)
+	fmt.Println(datos.Create_Correo_electronico)
+	*/
+	dt := time.Now() 
+	var fecha_ahora string
+	fecha_ahora=dt.Format("2006-01-02 15:04:05")
+	fmt.Println(fecha_ahora)
+	datos.Create_fecha_registro=fecha_ahora
+	datos.Create_foto_perfil="none"
+	datos.Create_cliente_rol=2;
+	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Access-Control-Allow-Origin","*")
+	w.WriteHeader(http.StatusOK)
+
+	err:= ConsultaCrearUsuario(datos.Create_Username,datos.Create_password,datos.Create_Nombre,datos.Create_Apellido,datos.Create_fecha_nacimiento,datos.Create_fecha_registro,datos.Create_Correo_electronico,datos.Create_foto_perfil)
+	if err != nil {
+		var vaciovec return_nuevoUsuario
+			vaciovec.Confirmacion=0
+			json.NewEncoder(w).Encode(vaciovec)
+	} else{
+
+		var vaciovec return_nuevoUsuario
+		vaciovec.Confirmacion=1
+		json.NewEncoder(w).Encode(vaciovec)
+		fmt.Println(err)
+	}
+	
+	fmt.Println("Retorno")
+	fmt.Println(err)
+}
 
 func GetLoginEndPoint(w http.ResponseWriter, req *http.Request){
 
@@ -127,6 +185,23 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 
 }
 
+func ConsultaCrearUsuario(_username string,_pass string,_nombre string,_apelli string,_fecha_nacimiento string,_fecha_registro string,_correo string,_foto string)error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	var consulta string
+	consulta = "\n\ninsert into cliente (Cliente_username,cliente_password,Cliente_nombre,Cliente_apellido,Cliente_fecha_nacimiento,Cliente_fecha_registro,Cliente_correo_electronico,Cliente_foto_perfil,cliente_rol) values ('"+_username+"','"+_pass+"','"+_nombre+"','"+_apelli+"',TIMESTAMP '"+_fecha_nacimiento+" 00:00:00',TIMESTAMP '"+_fecha_registro+"','"+_correo+"','"+_foto+"',2);";
+	fmt.Println(consulta)
+	_, error := db.Exec("insert into cliente (Cliente_username,cliente_password,Cliente_nombre,Cliente_apellido,Cliente_fecha_nacimiento,Cliente_fecha_registro,Cliente_correo_electronico,Cliente_foto_perfil,cliente_rol) values ('"+_username+"','"+_pass+"','"+_nombre+"','"+_apelli+"',TIMESTAMP '"+_fecha_nacimiento+" 00:00:00',TIMESTAMP '"+_fecha_registro+"','"+_correo+"','"+_foto+"',2)")
+	
+	fmt.Println("Usuario creado con exito")
+	
+	return error
+
+
+}
 
 
 func Consulta1()([]Estructura, error){
@@ -187,6 +262,8 @@ func main(){
 	//---------------------NOTA NO DIRECCIONES CON HIJOS --------------------------
 	//------------------------------- RUTAS --------------------------------------
 	router.HandleFunc("/Api",PostHomeEndPoint).Methods("POST")
+	router.HandleFunc("/CrearUsuario",PostCrearUsuario).Methods("POST")
+
 	router.HandleFunc("/consulta",GetConsulta1).Methods("GET")
 	router.HandleFunc("/login",GetLoginEndPoint).Methods("GET")	//cuando ingrese a esta direccion
 	//------------------------------------ Servidor ----------------------------------

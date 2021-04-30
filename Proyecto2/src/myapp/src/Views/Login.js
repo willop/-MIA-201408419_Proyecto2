@@ -1,4 +1,4 @@
-import React, { Fragment,useState } from 'react';
+import React, { useState } from 'react';
 import {Input, ButtonToggle, Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Views/Stylelogin.css';
@@ -22,12 +22,11 @@ const Login = (props) => {
         window.location.href = "/CrearUsuario"
     }
     
-
     
     const enviarDatos = async(event) =>{
         var logg = await Loginboton(datos.usuario,datos.contra)
         console.log(logg)
-        if(logg.ID_usuario!=0){
+        if(logg.ID_usuario!==0){
             cookies.set('ID_usuario',logg.ID_usuario,{path:"/"});
             cookies.set('Tipo_rol',logg.Tipo_rol,{path:"/"});
             cookies.set('Username', logg.Username,{path:"/"});

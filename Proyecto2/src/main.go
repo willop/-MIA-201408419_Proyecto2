@@ -4,9 +4,14 @@ import (
 	"fmt"
 	"encoding/json"
 	"time"
-	//"os"
+	"bytes"
 	"io/ioutil"
-	//"path/filepath"
+	"os"
+	"strings"
+	"encoding/base64"
+	"image/gif"
+	"image/png"
+	"image/jpeg"
 	"database/sql"
 	"log"
 	"net/http"
@@ -49,7 +54,7 @@ type req_Create_new_User struct{
 	Create_fecha_nacimiento 	string	`json:"fecha_nacimiento"`
 	Create_fecha_registro		string	
 	Create_Correo_electronico 	string	`json:"correo"`
-	Create_foto_perfil			string	
+	Create_foto_perfil			string	`json:"fileimg"`
 	Create_cliente_rol			int		
 }
 
@@ -59,6 +64,7 @@ type req_Create_new_User struct{
 
 /*********************************************** fin estructuras *****************************/
 
+//********************************************* funciones API ********************************************
 func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	//fmt.Fprintf(w,"Hola mundo, como estas, todo bien" , html.escapeString(r.URL.Path))
 	var datos req_Login
@@ -105,12 +111,18 @@ func PostCrearUsuario(w http.ResponseWriter, req *http.Request){
 	fmt.Println(datos.Create_fecha_nacimiento)
 	fmt.Println(datos.Create_Correo_electronico)
 	*/
+	//fmt.Print("Contenido de la img desde react: ")
+	//fmt.Println(datos.Create_foto_perfil)
+	DataToImgFromOracle(datos.Create_foto_perfil,datos.Create_Username)
+	datos.Create_foto_perfil= "./ImgUsers/"+datos.Create_Username+".jpg"
+	//fmt.Print("Contenido de la img desde react: ")
+	//fmt.Println(datos.Create_foto_perfil)
 	dt := time.Now() 
 	var fecha_ahora string
 	fecha_ahora=dt.Format("2006-01-02 15:04:05")
-	fmt.Println(fecha_ahora)
+	//fmt.Println(fecha_ahora)
 	datos.Create_fecha_registro=fecha_ahora
-	datos.Create_foto_perfil="none"
+	//datos.Create_foto_perfil="none"
 	datos.Create_cliente_rol=2;
 	w.Header().Set("Content-Type","application/json")
 	w.Header().Set("Access-Control-Allow-Origin","*")
@@ -122,7 +134,6 @@ func PostCrearUsuario(w http.ResponseWriter, req *http.Request){
 			vaciovec.Confirmacion=0
 			json.NewEncoder(w).Encode(vaciovec)
 	} else{
-
 		var vaciovec return_nuevoUsuario
 		vaciovec.Confirmacion=1
 		json.NewEncoder(w).Encode(vaciovec)
@@ -156,6 +167,7 @@ func Coneccion_Oracle ()(db *sql.DB, e error){
 
 //funcion para hacer login
 
+//******************************************** Descripcion consultas ******************************************
 func ConsultaLogin(user,pass string)([]return_Login,error){
 	Retorno := []return_Login{}
 	db,err := Coneccion_Oracle()
@@ -200,9 +212,7 @@ func ConsultaCrearUsuario(_username string,_pass string,_nombre string,_apelli s
 	
 	return error
 
-
 }
-
 
 func Consulta1()([]Estructura, error){
 	
@@ -248,6 +258,65 @@ func GetConsulta1(w http.ResponseWriter, r *http.Request) {
 		//crear_json, _ := json.Marshal(eventostabla)
 	}
 }
+
+//****************************************************** funciones ***************************************************
+
+
+func DataToImgFromOracle(dataimg,nombreimg string){
+	idx := strings.Index(dataimg, ";base64,")
+	if idx < 0 {
+		panic("InvalidImage")
+	}
+	ImageType:= dataimg[11:idx]
+	log.Println(ImageType)
+
+	unbased, err := base64.StdEncoding.DecodeString(dataimg[idx+8:])
+	if err != nil {
+        panic("Cannot decode b64")
+    }
+
+    r := bytes.NewReader(unbased)
+    switch ImageType {
+    case "png":
+        im, err := png.Decode(r)
+        if err != nil {
+            panic("Formato incorrecta del png")
+        }
+
+        f, err := os.OpenFile("./ImgUsers/"+nombreimg+".png", os.O_WRONLY|os.O_CREATE, 0777)
+        if err != nil {
+            panic("Cannot open file")
+        }
+
+        png.Encode(f, im)
+		
+    case "jpeg":
+        im, err := jpeg.Decode(r)
+        if err != nil {
+            panic("Formato incorrecto jpeg")
+        }
+
+        f, err := os.OpenFile("./ImgUsers/"+nombreimg+".jpeg", os.O_WRONLY|os.O_CREATE, 0777)
+        if err != nil {
+            panic("Cannot open file")
+        }
+
+        jpeg.Encode(f, im, nil)
+    case "gif":
+        im, err := gif.Decode(r)
+        if err != nil {
+            panic("Formato incorrecto gif")
+        }
+
+        f, err := os.OpenFile("./ImgUsers/"+nombreimg+".gif", os.O_WRONLY|os.O_CREATE, 0777)
+        if err != nil {
+            panic("Cannot open file")
+        }
+
+        gif.Encode(f, im, nil)
+    }
+}
+
 
 func main(){
 	fmt.Println("Servidor de GO execute \nPort:4000\n...")

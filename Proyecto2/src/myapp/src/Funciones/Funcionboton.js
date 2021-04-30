@@ -20,9 +20,11 @@ async function Login(param1,param2){
     })
 
     .then(response => response.json())
+
     .then(function(jsons){
         console.log(jsons)
         retorno = jsons
+
         if(jsons.ID_usuario ==0){
             alert("Usuario incorrecto " + jsons.ID_usuario)
             
@@ -31,7 +33,7 @@ async function Login(param1,param2){
                 alert("Bienvenido administrador "+jsons.ID_usuario)
                 //return jsons
             }else{
-                alert("Bienvnido usuario")
+                alert("Bienvnido usuario")          
                 //
             }      
         }

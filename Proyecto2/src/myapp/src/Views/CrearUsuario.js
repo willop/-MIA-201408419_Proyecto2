@@ -3,7 +3,7 @@ import {Input, ButtonToggle, Button, Form, FormGroup, Label, FormFeedback, FormT
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './StyleCrearUsuario.css';
 import CrearNuevoUsuario from '../Funciones/FuncionCrearNuevoUsuario';
-
+import { ImagePicker } from 'react-file-picker'
 
 
 const CrearUsuario  =(props) => {
@@ -15,7 +15,8 @@ const CrearUsuario  =(props) => {
         Nombre: '',
         Apellido: '',
         Fecha_nacimiento: '',
-        Correo_electronico:''
+        Correo_electronico:'',
+        file:''
     })
 
 
@@ -24,7 +25,7 @@ const CrearUsuario  =(props) => {
 
     const BotonCrearUsuario =async(event) =>{
         event.preventDefault()
-        var logg = await CrearNuevoUsuario(datoss.Username,datoss.Password,datoss.Nombre,datoss.Apellido,datoss.Fecha_nacimiento,datoss.Correo_electronico);
+        var logg = await CrearNuevoUsuario(datoss.Username,datoss.Password,datoss.Nombre,datoss.Apellido,datoss.Fecha_nacimiento,datoss.Correo_electronico,datoss.file);
         console.log("retorno de funcion")
         console.log(logg)
         if(logg.Confirmacion==1){
@@ -32,9 +33,55 @@ const CrearUsuario  =(props) => {
         }
     }
 
+
+
     const handleInputChange = (event) =>{
         setDatos({...datoss,[event.target.name]: event.target.value})
     }
+
+
+
+
+
+
+    /*
+    const handleReaderLoaded = (event) => {
+        let binaryString = event.target.result
+        this.setState({
+            base64TextString: btoa(binaryString)
+        })
+    }
+
+*/
+
+    const filesSelectedHandler = async(event) =>{
+        //console.log(event.target.files[0]);
+        const filefoto = event.target.files[0];
+        const base64 = await convertobase64(filefoto);
+        console.log(base64)
+        datoss.file= base64
+        console.log(datoss.Username)
+        console.log(datoss.file)
+    }
+
+
+    const convertobase64 =(file)=>{
+        return new Promise((resolve, reject)=>{
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+
+            fileReader.onload=()=>{
+                resolve(fileReader.result)
+            };
+
+            fileReader.onerror =(error) =>{
+                reject(error);
+            }
+        });
+    }
+
+
+
 
         return (
             <div id="fondo_divx">
@@ -58,6 +105,9 @@ const CrearUsuario  =(props) => {
                         <br/>
                         <h3><label >Correo electronico</label></h3>
                         <Input name="Correo_electronico" onChange={handleInputChange} placeholder="Correo electronico" />
+                        <br/>
+                            <input type="file" name="file" id="file" onChange={filesSelectedHandler} accept=".jpg, .png, .jpeg"/>                                                           
+                        <br/>                       
                     </div> 
                     <div id="boton_crear_usuario">
                         <ButtonToggle onClick={BotonCrearUsuario}  color='primary'>Crear Usuario</ButtonToggle>    

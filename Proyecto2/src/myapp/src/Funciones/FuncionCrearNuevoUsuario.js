@@ -1,7 +1,7 @@
 
 var sha256 = require('js-sha256');
 
-async function CrearNuevoUsuario(paramusu,parampass,paramnombre,paramapellido,paramfechanacimiento,paramcorreo){
+async function CrearNuevoUsuario(paramusu,parampass,paramnombre,paramapellido,paramfechanacimiento,paramcorreo,paramfile){
     var retorno;
     var pass_encript = await sha256(parampass)
     var url="http://localhost:4000/CrearUsuario";
@@ -11,7 +11,8 @@ async function CrearNuevoUsuario(paramusu,parampass,paramnombre,paramapellido,pa
     'nombre':''+paramnombre,
     'apellido':''+paramapellido,
     'fecha_nacimiento':''+paramfechanacimiento,
-    'correo':''+paramcorreo
+    'correo':''+paramcorreo,
+    'fileimg':''+paramfile
     }
 
     await fetch(url,{

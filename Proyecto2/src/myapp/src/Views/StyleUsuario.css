@@ -1,0 +1,48 @@
+#div_container_usuario{
+    min-height: 100vh;
+    background-image: linear-gradient(black,rgb(163, 163, 247));
+}
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.slidebar{
+    position:fixed;
+    left:0;
+    width:250px;
+    height:100%;
+    background-color:chocolate;
+}
+
+.slidebar header{
+    font-size: 22px;
+    color:#fff;
+    text-align: center;
+    line-height: 70px;
+    background-color:black;
+    user-select: none;
+}
+
+.slidebar li{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color:white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid green;
+    border-bottom: 1px solid black;
+    transition: .3s;
+    margin-right: 16px;
+}
+
+ul li:hover {
+    padding-left: 50px;
+}
+

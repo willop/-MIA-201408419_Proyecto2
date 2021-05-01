@@ -1,20 +1,38 @@
 #fondo_divx{
     min-height: 100vh;
-    background-color: teal;
+    background-image: linear-gradient(black,rgb(0, 172, 202));
 }
 
 #Contenedor_formulario{
     position: fixed;
+    border-radius: 50px;
     background-color:thistle;
     top: 10%;
-    left: 15%;
-    width: 75%;
+    left: 31%;
+    width: 35%;
     height: 80%;
 }
 
 #boton_crear_usuario{
     position: relative;
-    top: 15%;
+    top: 12%;
     left:43%;
     
 }
+
+#FormularioCompacto{
+    position: relative;
+    left:28%;
+    top:40px;
+    width: 45%;
+    height: 50%;
+}
+
+#logoquiniela{
+    height:150px; 
+    width:auto;
+    left:45%; 
+    position:fixed;
+    top:3%;
+}
+

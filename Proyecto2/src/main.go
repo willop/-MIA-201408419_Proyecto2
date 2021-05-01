@@ -18,6 +18,7 @@ import (
 	 "github.com/gorilla/mux"
 	"html/template"
 	_ "github.com/mattn/go-oci8"
+	//"strconv"
 )
 
 /********************************* Estructuras para las bases de datos **************************/
@@ -25,6 +26,12 @@ type return_Login struct{
 	ID_usuario int
 	Tipo_rol int
 	Username string
+	Nombre string
+	Apellido string
+	//FechaNacimiento time.Time
+	CorreoElectronico string
+	FotoUsuario string
+	TipoMembresia int
 }
 
 type return_nuevoUsuario struct{
@@ -60,8 +67,6 @@ type req_Create_new_User struct{
 
 
 
-
-
 /*********************************************** fin estructuras *****************************/
 
 //********************************************* funciones API ********************************************
@@ -77,9 +82,16 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	w.WriteHeader(http.StatusOK)
 
 	retornologin, err := ConsultaLogin(datos.USERNAME,datos.PASSWORD)
-		
+	fmt.Println(retornologin)
+	
 	if err != nil {
 		var vaciovec return_Login
+			vaciovec.Nombre="";
+			vaciovec.Apellido="";
+			//vaciovec.FechaNacimiento="";
+			vaciovec.CorreoElectronico="";
+			vaciovec.FotoUsuario="";
+			vaciovec.TipoMembresia=0;
 			vaciovec.ID_usuario=0; 
 			vaciovec.Tipo_rol=-2; //error en consulta
 			vaciovec.Username="";
@@ -87,12 +99,19 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	} else{
 		if len(retornologin)==0{
 			var vaciovec return_Login
+			vaciovec.Nombre="";
+			vaciovec.Apellido="";
+			//vaciovec.FechaNacimiento="";
+			vaciovec.CorreoElectronico="";
+			vaciovec.FotoUsuario="";
+			vaciovec.TipoMembresia=0;
 			vaciovec.ID_usuario=0; 
 			vaciovec.Tipo_rol=-1; //usuario no existe
 			vaciovec.Username="";
 			json.NewEncoder(w).Encode(vaciovec)
 		}else{
-			//fmt.Println("no vacio: ")
+			//fmt.Println(retornologin[0].FotoUsuario)
+			retornologin[0].FotoUsuario=ConverIMGgo2(retornologin[0].FotoUsuario)
 			json.NewEncoder(w).Encode(retornologin[0])
 		}
 		fmt.Println(retornologin)
@@ -176,8 +195,9 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 	}
 	defer db.Close()
 	var consulta string
-	consulta = "select cliente.cliente_rol, cliente.id_cliente,cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
-	rows, err := db.Query("select cliente.cliente_rol, cliente.id_cliente, cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"'")
+	           consulta = "select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username, cliente.cliente_nombre, cliente.cliente_apellido, Cliente.Cliente_correo_electronico, cliente.Cliente_foto_perfil, cliente.fk_id_membresia from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
+	fmt.Println(consulta)
+	rows, err := db.Query("select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username, cliente.cliente_nombre, cliente.cliente_apellido, Cliente.Cliente_correo_electronico, cliente.Cliente_foto_perfil from cliente where cliente.cliente_username = '"+user+"' and cliente.cliente_password='"+pass+"'")
 	if err != nil {
 		log.Fatal("Error fetching user data\n", err)
 	}
@@ -185,7 +205,7 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 
 	var tiporol return_Login
 	for rows.Next(){
-		err = rows.Scan(&tiporol.ID_usuario,&tiporol.Tipo_rol,&tiporol.Username)
+		err = rows.Scan(&tiporol.ID_usuario,&tiporol.Tipo_rol,&tiporol.Username,&tiporol.Nombre,&tiporol.Apellido,&tiporol.CorreoElectronico,&tiporol.FotoUsuario)
 		if err != nil{
 			return nil, err
 		}
@@ -296,7 +316,7 @@ func DataToImgFromOracle(dataimg,nombreimg string){
             panic("Formato incorrecto jpeg")
         }
 
-        f, err := os.OpenFile("./ImgUsers/"+nombreimg+".jpeg", os.O_WRONLY|os.O_CREATE, 0777)
+        f, err := os.OpenFile("./ImgUsers/"+nombreimg+".jpg", os.O_WRONLY|os.O_CREATE, 0777)
         if err != nil {
             panic("Cannot open file")
         }
@@ -318,7 +338,8 @@ func DataToImgFromOracle(dataimg,nombreimg string){
 }
 
 
-func main(){
+
+	func main(){
 	fmt.Println("Servidor de GO execute \nPort:4000\n...")
 	
 	//-------------------------------Inicio del servidor------------------

@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './Views/Login';
 import Admin from './Views/Administrador'
 import CrearUsuario from './Views/CrearUsuario'
+import Usuario from './Views/Usuario'
 import {
   Switch,
   Route,
@@ -25,6 +26,10 @@ function App() {
       <Route
         exact path='/CrearUsuario'
         render={(props) => <CrearUsuario {...props}/>}
+      />
+      <Route
+        exact path='/Usuario'
+        render={(props) => <Usuario {...props}/>}
       />
     </BrowserRouter>
   );

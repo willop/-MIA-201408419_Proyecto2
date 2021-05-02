@@ -14,6 +14,7 @@ import (
 	"image/jpeg"
 	"database/sql"
 	"log"
+	//"strconv"
 	"net/http"
 	 "github.com/gorilla/mux"
 	"html/template"
@@ -26,9 +27,13 @@ type return_Login struct{
 	ID_usuario int
 	Tipo_rol int
 	Username string
+	
+}
+
+type return_perfil struct{
 	Nombre string
 	Apellido string
-	//FechaNacimiento time.Time
+	FechaNacimiento string
 	CorreoElectronico string
 	FotoUsuario string
 	TipoMembresia int
@@ -65,7 +70,10 @@ type req_Create_new_User struct{
 	Create_cliente_rol			int		
 }
 
-
+//	Info usuario
+type req_Usuario struct{
+	Identificador				string	`json:"ident"`
+}
 
 /*********************************************** fin estructuras *****************************/
 
@@ -86,12 +94,6 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	
 	if err != nil {
 		var vaciovec return_Login
-			vaciovec.Nombre="";
-			vaciovec.Apellido="";
-			//vaciovec.FechaNacimiento="";
-			vaciovec.CorreoElectronico="";
-			vaciovec.FotoUsuario="";
-			vaciovec.TipoMembresia=0;
 			vaciovec.ID_usuario=0; 
 			vaciovec.Tipo_rol=-2; //error en consulta
 			vaciovec.Username="";
@@ -99,24 +101,44 @@ func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	} else{
 		if len(retornologin)==0{
 			var vaciovec return_Login
-			vaciovec.Nombre="";
-			vaciovec.Apellido="";
-			//vaciovec.FechaNacimiento="";
-			vaciovec.CorreoElectronico="";
-			vaciovec.FotoUsuario="";
-			vaciovec.TipoMembresia=0;
 			vaciovec.ID_usuario=0; 
 			vaciovec.Tipo_rol=-1; //usuario no existe
 			vaciovec.Username="";
 			json.NewEncoder(w).Encode(vaciovec)
 		}else{
 			//fmt.Println(retornologin[0].FotoUsuario)
-			retornologin[0].FotoUsuario=ConverIMGgo2(retornologin[0].FotoUsuario)
+			//retornologin[0].FotoUsuario=ConverIMGgo2(retornologin[0].FotoUsuario)
 			json.NewEncoder(w).Encode(retornologin[0])
 		}
 		fmt.Println(retornologin)
 	}
 }	
+
+
+func PostDatosUsuario(w http.ResponseWriter, req *http.Request){
+	var datos req_Usuario
+	reqBody,_ := ioutil.ReadAll(req.Body)
+	json.Unmarshal(reqBody,&datos)
+	fmt.Println(datos.Identificador)
+
+	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Access-Control-Allow-Origin","*")
+	w.WriteHeader(http.StatusOK)
+	fmt.Println("El valor que ingresa a datos.iden es: ")
+	
+	retornodatosusuario, err := ConsultaUsuario(datos.Identificador)
+	fmt.Println("Retorno del login: ")
+	fmt.Println(retornodatosusuario)
+
+	if err != nil{
+		var varret return_perfil
+		varret.TipoMembresia=10;
+		json.NewEncoder(w).Encode(varret)
+	}else{
+		retornodatosusuario[0].FotoUsuario=ConverIMGgo2(retornodatosusuario[0].FotoUsuario)
+		json.NewEncoder(w).Encode(retornodatosusuario[0])
+	}
+}
 
 func PostCrearUsuario(w http.ResponseWriter, req *http.Request){
 	var datos req_Create_new_User
@@ -195,9 +217,9 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 	}
 	defer db.Close()
 	var consulta string
-	           consulta = "select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username, cliente.cliente_nombre, cliente.cliente_apellido, Cliente.Cliente_correo_electronico, cliente.Cliente_foto_perfil, cliente.fk_id_membresia from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
+	           consulta = "select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
 	fmt.Println(consulta)
-	rows, err := db.Query("select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username, cliente.cliente_nombre, cliente.cliente_apellido, Cliente.Cliente_correo_electronico, cliente.Cliente_foto_perfil from cliente where cliente.cliente_username = '"+user+"' and cliente.cliente_password='"+pass+"'")
+	rows, err := db.Query("select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username from cliente where cliente.cliente_username = '"+user+"' and cliente.cliente_password='"+pass+"'")
 	if err != nil {
 		log.Fatal("Error fetching user data\n", err)
 	}
@@ -205,7 +227,7 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 
 	var tiporol return_Login
 	for rows.Next(){
-		err = rows.Scan(&tiporol.ID_usuario,&tiporol.Tipo_rol,&tiporol.Username,&tiporol.Nombre,&tiporol.Apellido,&tiporol.CorreoElectronico,&tiporol.FotoUsuario)
+		err = rows.Scan(&tiporol.ID_usuario,&tiporol.Tipo_rol,&tiporol.Username)
 		if err != nil{
 			return nil, err
 		}
@@ -215,6 +237,38 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 	fmt.Println(Retorno)
 	return Retorno,nil
 
+}
+
+func ConsultaUsuario(_Identificador string)([]return_perfil,error){
+	
+	Retorno:= []return_perfil{}
+	db, err := Coneccion_Oracle()
+	if err != nil{
+		return nil,err
+	}
+
+	defer db.Close()
+	var consulta string  //nombre, apellido , fechanacimien, correo, foto, membresia
+			     consulta="select cliente.cliente_nombre, cliente.cliente_apellido, cliente.cliente_fecha_nacimiento, cliente.cliente_correo_electronico, cliente.cliente_foto_perfil from cliente where ID_cliente = " + _Identificador ;
+	fmt.Println(consulta)
+	rows, err := db.Query("select cliente.cliente_nombre, cliente.cliente_apellido, cliente.cliente_fecha_nacimiento, cliente.cliente_correo_electronico, cliente.cliente_foto_perfil from cliente where ID_cliente = " + _Identificador)
+	if err!= nil{
+		log.Fatal("Error fatal en la consulta\n",err)
+	}
+	defer rows.Close()
+
+	var tipoo return_perfil
+	for rows.Next(){
+		err = rows.Scan(&tipoo.Nombre,&tipoo.Apellido,&tipoo.FechaNacimiento,&tipoo.CorreoElectronico,&tipoo.FotoUsuario)
+			if err != nil{
+				fmt.Println(err)
+				return nil,err
+			}
+			Retorno = append(Retorno,tipoo)
+	}
+	fmt.Println("Retorno de la consulta del perfil de usuario")
+	fmt.Println(Retorno)
+	return Retorno,nil
 }
 
 func ConsultaCrearUsuario(_username string,_pass string,_nombre string,_apelli string,_fecha_nacimiento string,_fecha_registro string,_correo string,_foto string)error{
@@ -353,7 +407,7 @@ func DataToImgFromOracle(dataimg,nombreimg string){
 	//------------------------------- RUTAS --------------------------------------
 	router.HandleFunc("/Api",PostHomeEndPoint).Methods("POST")
 	router.HandleFunc("/CrearUsuario",PostCrearUsuario).Methods("POST")
-
+	router.HandleFunc("/DatosUsuario",PostDatosUsuario).Methods("POST")
 	router.HandleFunc("/consulta",GetConsulta1).Methods("GET")
 	router.HandleFunc("/login",GetLoginEndPoint).Methods("GET")	//cuando ingrese a esta direccion
 	//------------------------------------ Servidor ----------------------------------

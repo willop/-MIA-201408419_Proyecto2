@@ -36,7 +36,7 @@ const Login = (props) => {
         if(logg.ID_usuario===1){         
             cookies.set('ID_usuario',logg.ID_usuario,{path:"/"});
             cookies.set('Tipo_rol',logg.Tipo_rol,{path:"/"});
-            cookies.set('Username', logg.Username,{path:"/"});
+            cookies.set('Username', logg.Username,{path:"/"});     
             window.location.href = "/Administrador";
         }
         else if(logg.ID_usuario===0){
@@ -48,9 +48,6 @@ const Login = (props) => {
             cookies.set('Username', logg.Username,{path:"/"});
             window.location.href = "/Usuario";
         }
-        //Loginboton(datos.usuario,datos.contra)
-        //console.log(datos.username);
-        //console.log(datos.password);
     }
     
     const handleuserchange = (event) =>{

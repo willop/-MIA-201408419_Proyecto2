@@ -26,8 +26,8 @@ func ConverIMGgo2(ruta string) string{
 	
 
 	base64 += toBase64(bytes)
-	fmt.Println("la codificacion es:\n")
-	fmt.Println(base64)
+	//fmt.Println("la codificacion es:\n")
+	//fmt.Println(base64)
 	
 	return base64
 

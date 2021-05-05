@@ -55,5 +55,15 @@ ul li:hover {
     height: 70px;
     width:auto;
     border-radius: 50%;
-
 }
+
+/*
+#Contenido_usuario{
+    position: absolute;
+    background-color: lawngreen;
+    height: max-content;
+    width: auto;
+    top:10%;
+    left: 28%;
+}
+*/

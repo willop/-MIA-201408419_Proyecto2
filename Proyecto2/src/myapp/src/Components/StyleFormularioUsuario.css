@@ -1,0 +1,28 @@
+#div_formulario{
+    background-color: cadetblue;
+    position: fixed;
+    top:15%;
+    left:25%;
+    border-radius: 25px;
+    height: 70%;
+    width: 60%;
+    align-items: center;
+}
+
+#div_campos{
+    position: relative;
+    height: 80%;
+    width: 90%;
+    left:5%;
+    top:5%;
+    align-items: center;
+}
+
+#div_imagen{
+    position: relative;
+    height: 15%;
+    width: auto;
+    left:40%;
+}
+
+

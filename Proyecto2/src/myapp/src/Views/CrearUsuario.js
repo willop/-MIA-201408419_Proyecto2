@@ -1,6 +1,6 @@
 
-import React, { Component, useState } from 'react';
-import {InputGroupAddon,InputGroupText,Input, ButtonToggle, Button, InputGroup, FormGroup } from 'reactstrap';
+import React, { useState } from 'react';
+import {InputGroupAddon,InputGroupText,Input, ButtonToggle, InputGroup } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './StyleCrearUsuario.css';
 import CrearNuevoUsuario from '../Funciones/FuncionCrearNuevoUsuario';
@@ -9,6 +9,7 @@ import {BiUserPlus} from "react-icons/bi"
 import {FaUserEdit} from "react-icons/fa"
 import {Si1Password,SiGmail} from "react-icons/si"
 import {MdDateRange,MdAddAPhoto} from "react-icons/md"
+
 
 
 const CrearUsuario = (props) => {
@@ -33,7 +34,7 @@ const CrearUsuario = (props) => {
         var logg = await CrearNuevoUsuario(datoss.Username, datoss.Password, datoss.Nombre, datoss.Apellido, datoss.Fecha_nacimiento, datoss.Correo_electronico, datoss.file);
         console.log("retorno de funcion")
         console.log(logg)
-        if (logg.Confirmacion == 1) {
+        if (logg.Confirmacion === 1) {
             window.location.href = "/login"
         }
     }
@@ -159,7 +160,6 @@ const CrearUsuario = (props) => {
                 <div id="boton_crear_usuario">
                     <ButtonToggle onClick={BotonCrearUsuario} color='primary'>Crear Usuario</ButtonToggle>
                 </div>
-
             </div>
         </div>
     );

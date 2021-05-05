@@ -408,6 +408,7 @@ func DataToImgFromOracle(dataimg,nombreimg string){
 	router.HandleFunc("/Api",PostHomeEndPoint).Methods("POST")
 	router.HandleFunc("/CrearUsuario",PostCrearUsuario).Methods("POST")
 	router.HandleFunc("/DatosUsuario",PostDatosUsuario).Methods("POST")
+	router.HandleFunc("/CambiarPassword",PostModificarPassword).Methods("POST")
 	router.HandleFunc("/consulta",GetConsulta1).Methods("GET")
 	router.HandleFunc("/login",GetLoginEndPoint).Methods("GET")	//cuando ingrese a esta direccion
 	//------------------------------------ Servidor ----------------------------------

@@ -14,7 +14,7 @@ async function FuncionInfoPerfil(param) {
         })
     .then(Response =>Response.json())
     .then(function(jsons){
-        console.log(jsons)
+        //console.log(jsons)
         retorno = jsons
     })
     .catch(error => console.error('Error:',error))

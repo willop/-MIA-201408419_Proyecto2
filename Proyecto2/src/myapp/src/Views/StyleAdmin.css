@@ -1,5 +1,86 @@
-
-#View-Administrador{
+#div_container_admin{
     min-height: 100vh;
-    background-color: green;
+    background-image: linear-gradient(black,rgb(163, 163, 247));
+}
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.slidebar{
+    position:fixed;
+    left:0;
+    width:250px;
+    height:100%;
+    background-color:rgba(0, 0, 255, 0.324);
+    cursor: grab;
+}
+
+.slidebar header{
+    font-size: 22px;
+    color:#fff;
+    text-align: center;
+    line-height: 70px;
+    background-color:black;
+    user-select: none;
+}
+
+.slidebar li{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color:white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgb(6, 0, 113);
+    border-bottom: 2px solid black;
+    --border-radius: 8px;
+    transition: .3s;
+    margin-right: 16px;
+}
+
+ul li:hover {
+    padding-left: 50px;
+}
+
+#foto_preview{
+    position: relative;
+    left: 30%;
+    background-color: aqua;
+    height: 70px;
+    width:auto;
+    border-radius: 50%;
+}
+
+#Informacion{
+    position: fixed;
+    top:10%;
+    left: 25%;
+    width: 70%;
+}
+
+#div_cant_membresias{
+    display: flex;   
+    float: left;
+    text-align: center;
+    width: 100%;
+    /*position: relative;
+    --display: block;
+    float:left;*/
+
+}
+
+#Close_session{
+    vertical-align: bottom;
+}
+
+#div_CargaMasiva{
+    position: fixed;
+    top:50%;
+    left: 54%;
 }

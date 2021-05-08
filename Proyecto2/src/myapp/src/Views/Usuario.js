@@ -60,16 +60,22 @@ function Usuario(props) {
                 })
         .then(Response =>Response.json())
         .then(function(jsons){
+            
+            var fechasub = jsons.FechaNacimiento
+            fechasub = fechasub.substring(0,10)
+            console.log("Fecha: "+fechasub)
+            jsons.FechaNacimiento= fechasub
             setImg(jsons)
         })
         .catch(error => console.error('Error:',error))
+        console.log(img)
         
         /*var infomostrar = GetInfo(iden);
         console.log("Probando usestate"+infomostrar)
         console.log("accediendo a la data: "+infomostrar.nombre)
         setImg(infomostrar)
 */
-        console.log(img)
+        //console.log(img)
     },[]);
 
 
@@ -77,13 +83,13 @@ function Usuario(props) {
     function Componente () {
         
         if (estadodiv===1) {
-            
-            return <FormularioPerfil name=""/>
+            //console.log(img.Nombre+""+img.Apellido+""+img.FechaNacimiento+""+img.CorreoElectronico+""+img.TipoMembresia+""+img.FotoUsuario)            
+            return <FormularioPerfil name={img.Nombre} apellido={img.Apellido} Fecha={img.FechaNacimiento}  correo={img.CorreoElectronico} membresia={img.TipoMembresia}  imgg={img.FotoUsuario} />
         } else if (estadodiv===2) {
-            console.log("Accion en membresia")
+            //console.log("Accion en membresia")
             return ""
         } else if (estadodiv===3) {
-            console.log("Accion en membresia")
+            //console.log("Accion en membresia")
             return ""
         }
             return ""
@@ -102,22 +108,15 @@ function Usuario(props) {
         <div id="div_container_usuario">
 
             <div className="slidebar">
-                <div >
-                <img src={imgg} id="foto_preview"  / >                
-                </div>
                 <ul>
                     <header>{img.Nombre}</header>
-                    <header>Hola</header>
                     <li name="Perfil" onClick={(e)=> {Switchdiv(e, "Perfil")}}><BiUserPlus />   Perfil</li>
                     <li name="Inicio" onClick={(e)=> {Switchdiv(e, "Inicio")}}><BiHome />   Inicio</li>
                     <li name="Membresia"onClick={(e)=> {Switchdiv(e, "Membresia")}}><MdPayment />   Membresia</li>
                     <li id="Close_session" onClick={cerrar} ><GiExitDoor />   Cerrar sesion</li>
                 </ul>
             </div>
-            <div id="div_img">
-                <img src={img.FotoUsuario} width="500px" />
-            </div>
-            <div id="Contenido_usuario">
+            <div id="Contenido_usuarioxd">
                 <Componente />
             </div>
         </div>

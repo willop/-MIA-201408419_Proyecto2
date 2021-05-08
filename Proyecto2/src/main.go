@@ -14,6 +14,8 @@ import (
 	"image/jpeg"
 	"database/sql"
 	"log"
+	"github.com/mitchellh/mapstructure"
+    "github.com/spf13/viper"
 	//"strconv"
 	"net/http"
 	 "github.com/gorilla/mux"
@@ -22,39 +24,85 @@ import (
 	//"strconv"
 )
 
+//************************************************************************************************
+/***************************************************************************************************
+//struct para la carga masiva*/
+
+
+type Struct_Usuario struct {
+	Nombre						string
+	Apellido					string
+	Password					string	
+	Username					string	
+	Resultados[]				Struct_Resultados
+}
+
+type Struct_Resultados struct{
+	Temporada					string
+	Tier						string
+	Jornadas[]					Struct_Jornadas
+}
+
+type Struct_Jornadas struct{
+	Jornada						string
+	Predicciones[]				Struct_Predicciones
+}
+
+type Struct_Predicciones struct{
+	Deporte						string
+	Fecha						string
+	Visitante					string
+	Local						string
+	Prediccion					Struct_Prediccion
+	Resultado					Struct_Resultado
+}
+
+type Struct_Prediccion struct{
+	Visitante					int
+	Local						int
+}
+
+type Struct_Resultado struct{
+	Visitante					int
+	Local						int
+}
+
+
+
+
 /********************************* Estructuras para las bases de datos **************************/
 type return_Login struct{
-	ID_usuario int
-	Tipo_rol int
-	Username string
+	ID_usuario 					int
+	Tipo_rol 					int
+	Username 					string
 	
 }
 
 type return_perfil struct{
-	Nombre string
-	Apellido string
-	FechaNacimiento string
-	CorreoElectronico string
-	FotoUsuario string
-	TipoMembresia int
+	Nombre 						string
+	Apellido 					string
+	FechaNacimiento 			string
+	CorreoElectronico 			string
+	FotoUsuario 				string
+	TipoMembresia 				int
 }
 
 type return_nuevoUsuario struct{
-	Confirmacion int
+	Confirmacion 				int
 }
 
 
 //********************* Estructuras desde react *********************************
 //prueba
 type Estructura struct{
-	Id_estado int
-	Estado_color string
+	Id_estado 					int
+	Estado_color 				string
 }
 
 // Login
 type req_Login struct {
-	USERNAME string `json:"user"`
-	PASSWORD string	`json:"pass"`
+	USERNAME 					string `json:"user"`
+	PASSWORD 					string	`json:"pass"`
 }
 
 //  Insert
@@ -70,14 +118,143 @@ type req_Create_new_User struct{
 	Create_cliente_rol			int		
 }
 
+type req_Update struct{
+	Update_Username				string `json:"Username"`
+	Update_Nombre 				string `json:"Nombre"`
+	Update_Apellido				string `json:"Apellido"`
+	Update_Fecha				string `json:"Fecha"`
+	Update_Correo				string `json:"Correo"`
+	Update_Password				string `json:"Password"`
+	Update_File					string `json:"File"`
+}
+
 //	Info usuario
 type req_Usuario struct{
 	Identificador				string	`json:"ident"`
 }
 
+
+//info cargamasiva
+type req_cargaMasiva struct{
+	DataCMasiva					string `json:"Data"`
+}
+
 /*********************************************** fin estructuras *****************************/
 
 //********************************************* funciones API ********************************************
+func PostCargaMasiva(w http.ResponseWriter, req *http.Request){
+	fmt.Println("Carga masiva\n\n\n\n\n")	
+	var datos req_cargaMasiva
+	reqBody,_ := ioutil.ReadAll(req.Body)
+	json.Unmarshal(reqBody, &datos)
+	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Access-Control-Allow-Origin","*")
+	w.WriteHeader(http.StatusOK)
+
+	var vaciovec return_nuevoUsuario
+	vaciovec.Confirmacion=1
+	json.NewEncoder(w).Encode(vaciovec)
+	LeerCargamasiva(datos.DataCMasiva)
+	//fmt.Println(datos.DataCMasiva)
+}
+
+
+func PostModificarPassword(w http.ResponseWriter, req *http.Request){
+	fmt.Println("Consulta update\n\n\n\n\n")	
+	var datos req_Update
+	reqBody,_ := ioutil.ReadAll(req.Body)
+	json.Unmarshal(reqBody, &datos)
+	fmt.Println(datos.Update_Username)
+	fmt.Println(datos.Update_File)
+	fmt.Println(datos.Update_Password)
+	DataToImgFromOracle(datos.Update_File,datos.Update_Username)
+	datos.Update_File= "./ImgUsers/"+datos.Update_Username+".jpg"
+	//datos.Create_foto_perfil="none"
+	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Access-Control-Allow-Origin","*")
+	w.WriteHeader(http.StatusOK)
+
+	err:= ConsultaUpdate(datos.Update_Username,datos.Update_Nombre,datos.Update_Apellido,datos.Update_Fecha,datos.Update_Correo,datos.Update_Password,datos.Update_File)
+	if err != nil {
+		var vaciovec return_nuevoUsuario
+			vaciovec.Confirmacion=0
+			json.NewEncoder(w).Encode(vaciovec)
+	} else{
+		var vaciovec return_nuevoUsuario
+		vaciovec.Confirmacion=1
+		json.NewEncoder(w).Encode(vaciovec)
+		fmt.Println(err)
+	}
+	
+	fmt.Println("Retorno")
+	fmt.Println(err)
+
+
+}
+
+
+func LeerCargamasiva(_Data string){
+	//llibrerias
+	vi := viper.New()
+	vi.SetConfigType("yaml")
+	//para leer en yaml
+	var yamlDatos = []byte(_Data) // archivo = string
+	vi.ReadConfig(bytes.NewBuffer(yamlDatos))
+	DatosYaml := vi.AllSettings() //aca esta mapeado el string 
+	//struct
+	for idUs, infoUs := range DatosYaml{
+		var Cliente Struct_Usuario
+		dataMap := mapstructure.Decode(infoUs, &Cliente)
+		if dataMap != nil{
+			log.Panic(dataMap)
+		}
+		
+		//fmt.Println("-" + idUs)
+		//fmt.Println("--" +Cliente.Nombre)
+		//fmt.Println("--" +Cliente.Apellido)
+		//fmt.Println("--" +Cliente.Password)
+		//fmt.Println("--" +Cliente.Username)
+
+		//Todo el arbol
+	//Temporadas 
+	for temp := 0; temp < len(Cliente.Resultados); temp++{
+		//fmt.Println("---" + Cliente.Resultados[temp].Temporada)
+		//fmt.Println("---" + Cliente.Resultados[temp].Tier)
+		
+		for jorn := 0; jorn < len(Cliente.Resultados[temp].Jornadas); jorn++{
+			fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Jornada)
+			for dep := 0; dep < len(Cliente.Resultados[temp].Jornadas[jorn].Predicciones); dep++{
+				fmt.Println("-" + idUs)
+				fmt.Println("--" +Cliente.Nombre)
+				fmt.Println("--" +Cliente.Apellido)
+				fmt.Println("--" +Cliente.Password)
+				fmt.Println("--" +Cliente.Username)
+				fmt.Println("---" + Cliente.Resultados[temp].Temporada)
+				fmt.Println("---" + Cliente.Resultados[temp].Tier)
+				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte)
+				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha)
+				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante)
+				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local)
+				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Prediccion.Local)
+				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Prediccion.Visitante)
+				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Local)
+				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Visitante)
+				
+				fmt.Println()	
+			}
+
+		}
+
+	} 
+	
+	}
+	
+	
+
+
+
+}
+
 func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	//fmt.Fprintf(w,"Hola mundo, como estas, todo bien" , html.escapeString(r.URL.Path))
 	var datos req_Login
@@ -319,6 +496,21 @@ func Consulta1()([]Estructura, error){
 	fmt.Println(Eventostabla)
 	return Eventostabla, nil
 }
+
+func ConsultaUpdate(_username,_nombre,_apellido,_fecha,_correo,_pass,_foto string)error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	var consulta string
+	consulta = "Consulta:\nupdate Cliente set Cliente_password='"+_pass+"', Cliente_Nombre='"+_nombre+"', Cliente_apellido='"+_apellido+"' ,Cliente_fecha_nacimiento = TO_DATE('"+_fecha+"' ,'YYYY-MM-DD') , Cliente_correo_electronico='"+_correo+"', Cliente_foto_perfil ='"+_foto+"' where  cliente_username='"+_username+"';";
+	fmt.Println(consulta)
+	_,error := db.Exec("update Cliente set Cliente_password='"+_pass+"', Cliente_Nombre='"+_nombre+"', Cliente_apellido='"+_apellido+"' ,Cliente_fecha_nacimiento = TO_DATE('"+_fecha+"' ,'YYYY-MM-DD') , Cliente_correo_electronico='"+_correo+"', Cliente_foto_perfil ='"+_foto+"' where  cliente_username='"+_username+"'")
+
+	fmt.Println("Usuario Actualizado con exito")
+	return error
+}
 func GetConsulta1(w http.ResponseWriter, r *http.Request) {
 	Eventostabla, err := Consulta1()
 	
@@ -409,8 +601,12 @@ func DataToImgFromOracle(dataimg,nombreimg string){
 	router.HandleFunc("/CrearUsuario",PostCrearUsuario).Methods("POST")
 	router.HandleFunc("/DatosUsuario",PostDatosUsuario).Methods("POST")
 	router.HandleFunc("/CambiarPassword",PostModificarPassword).Methods("POST")
+	router.HandleFunc("/CargaMasiva",PostCargaMasiva).Methods("POST")
 	router.HandleFunc("/consulta",GetConsulta1).Methods("GET")
 	router.HandleFunc("/login",GetLoginEndPoint).Methods("GET")	//cuando ingrese a esta direccion
 	//------------------------------------ Servidor ----------------------------------
 	log .Fatal(http.ListenAndServe(":4000",router))
+
+
+
 }

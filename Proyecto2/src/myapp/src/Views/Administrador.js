@@ -1,4 +1,4 @@
-import {Input,Card, CardTitle, CardText,FormGroup, Label } from 'reactstrap';
+
 import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Views/StyleAdmin.css';
@@ -7,19 +7,56 @@ import { BiUserPlus, BiHome,BiCalendar } from "react-icons/bi";
 import { MdPayment,MdDateRange, MdClass } from "react-icons/md";
 import { GiChampions,GiSoccerBall,GiExitDoor } from "react-icons/gi";
 import { HiOutlineChartSquareBar } from "react-icons/hi";
-
+import HomeAdmin from "../Components/InicioAdmin"
+import Formulario from "../Components/FormularioUsuario"
 import imgg from "./Img/apuestas.png"
-import { useEffect } from 'react';
 
-const yaml = require('js-yaml');
+
 
 const cookies = new Cookies();
 
 function Administrador(props) {
 
-  const[valor, setvalor]=useState('')
+  const [switchComp, setSwitch] = useState(0);
 
+  function Switchdiv(event, param){
+    console.log("hola desde "+param)
+    setSwitch(param)
+}
 
+function Componente () {
+        //home
+  if (switchComp===1) {
+      return <Formulario/>
+        //perfil
+  } else if (switchComp===2) {
+      return <HomeAdmin/>
+      
+  } else if (switchComp===3) {
+      return ""
+  } else if (switchComp===4) {
+      return ""
+      
+  } else if (switchComp===5) {
+      return ""
+
+  } else if (switchComp===6) {
+      return ""
+      
+  } else if (switchComp===7) {
+      return ""
+
+  } else if (switchComp===8) {
+      return ""
+      
+  } else if (switchComp===9) {
+      return ""
+  }else{
+    return ""
+  }
+  
+
+}
 
   const  cerrar=() =>{
     cookies.remove('ID_usuario',{path:"/"});
@@ -28,23 +65,7 @@ function Administrador(props) {
     window.location.href="./login";
 }
 
-  const CargaMasiva=async(e)=>{
-    console.log("Hola mundos")
-    var readd = new FileReader();
-    if (e.target.files[0]){
-      readd.readAsText(e.target.files[0])
-      readd.onload = () => {
-        try {
-          var archivo = yaml.load(readd.result)
-          console.log(archivo)
-          setvalor(archivo)
-        } catch (error) {
-          console.log(error)
-        }
-      }
-    }
 
-  }
 /*
 if(!cookies.get('ID_usuario')){
   window.location.href="/login"
@@ -63,61 +84,21 @@ console.log("Tipo_rol: "+cookies.get('Tipo_rol'));
         </div>
         <ul>
           <header>Hola</header>
-          <li><BiUserPlus />   Perfil</li>
-          <li><BiHome />   Inicio</li>
-          <li><MdPayment />   Membresia</li>
-          <li><BiCalendar />   Jornadas</li>
-          <li><MdDateRange />   Temporada</li>
-          <li><MdClass />   Resultados</li>
-          <li><GiChampions />   Recompensas</li>
-          <li><GiSoccerBall />   Deportes</li>
-          <li><HiOutlineChartSquareBar />   Reportes</li>
+          <li onClick={(e)=> {Switchdiv(e, 1)}}><BiUserPlus />   Perfil</li>
+          <li onClick={(e)=> {Switchdiv(e, 2)}}><BiHome />   Inicio</li>
+          <li onClick={(e)=> {Switchdiv(e, 3)}}><MdPayment />   Membresia</li>
+          <li onClick={(e)=> {Switchdiv(e, 4)}}><BiCalendar />   Jornadas</li>
+          <li onClick={(e)=> {Switchdiv(e, 5)}}><MdDateRange />   Temporada</li>
+          <li onClick={(e)=> {Switchdiv(e, 6)}}><MdClass />   Resultados</li>
+          <li onClick={(e)=> {Switchdiv(e, 7)}}><GiChampions />   Recompensas</li>
+          <li onClick={(e)=> {Switchdiv(e, 8)}}><GiSoccerBall />   Deportes</li>
+          <li onClick={(e)=> {Switchdiv(e, 9)}}><HiOutlineChartSquareBar />   Reportes</li>
           <li id="Close_session" onClick={cerrar} ><GiExitDoor />   Cerrar sesion</li>
         </ul>
       </div>
-      <div id="Informacion">
-        <div id="Capital_temporada">
-          <center>
-            <Card body inverse color="info">
-              <CardTitle tag="h5">Capital de Temporada</CardTitle>
-              <CardText>
-                <h1>1234</h1>
-              </CardText>
-            </Card>
-          </center>
-        </div>
-        <br />
-        <div id="div_cant_membresias">
-          <Card body inverse style={{ backgroundColor: '#D47907', borderColor: '#333' }}>
-            <CardTitle tag="h5">Capital de Temporada</CardTitle>
-            <CardText>
-              <h1>1234</h1>
-            </CardText>
-          </Card>
-          <Card body inverse style={{ backgroundColor: '#9D9D9D', borderColor: '#333' }}>
-            <CardTitle tag="h5">Capital de Temporada</CardTitle>
-            <CardText>
-              <h1>1234</h1>
-            </CardText>
-          </Card>
-          <Card body inverse color="warning">
-            <CardTitle tag="h5">Capital de Temporada</CardTitle>
-            <CardText>
-              <h1>1234</h1>
-            </CardText>
-          </Card>
-        </div>
-        <br/>
+      <div id="Componente">
+        <Componente/>
       </div>
-      <center>
-        <div id="div_CargaMasiva">
-        <FormGroup>
-        <Label for="Carga masiva">Carga Masiva</Label>
-        <Input type="file" name="file" onChange={CargaMasiva}  id="exampleFile" />
-      </FormGroup>
-      <Input disabled="true" value={valor} name="ejemplo"></Input>
-        </div>
-      </center>
       
     </div>
   );

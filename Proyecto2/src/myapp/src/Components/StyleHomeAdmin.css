@@ -1,0 +1,29 @@
+
+#Informacion{
+    position: fixed;
+    top:10%;
+    left: 25%;
+    width: 70%;
+}
+
+#div_cant_membresias{
+    display: flex;   
+    float: left;
+    text-align: center;
+    width: 100%;
+    /*position: relative;
+    --display: block;
+    float:left;*/
+
+}
+
+#Close_session{
+    vertical-align: bottom;
+}
+
+#div_CargaMasiva{
+    position: fixed;
+    top:50%;
+    left: 54%;
+}
+

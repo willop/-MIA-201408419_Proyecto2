@@ -4,6 +4,7 @@ import Admin from './Views/Administrador'
 import CrearUsuario from './Views/CrearUsuario'
 import Usuario from './Views/Usuario'
 import FormularioUsuario from "./Components/FormularioUsuario"
+import HomeAdmin from "./Components/InicioAdmin"
 
 import {
   Route,
@@ -31,8 +32,8 @@ function App() {
         render={(props) => <Usuario {...props}/>}
       />
       <Route
-        exact path='/Prueba'
-        render={(props) => <FormularioUsuario {...props}/>}
+        exact path='/Prueba2'
+        render={(props) => <HomeAdmin {...props}/>}
       />
       <Route
         exact path='/Prueba'

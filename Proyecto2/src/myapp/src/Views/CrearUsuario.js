@@ -9,7 +9,7 @@ import {BiUserPlus} from "react-icons/bi"
 import {FaUserEdit} from "react-icons/fa"
 import {Si1Password,SiGmail} from "react-icons/si"
 import {MdDateRange,MdAddAPhoto} from "react-icons/md"
-
+import Cookies from 'universal-cookie';
 
 
 const CrearUsuario = (props) => {
@@ -44,8 +44,6 @@ const CrearUsuario = (props) => {
     const handleInputChange = (event) => {
         setDatos({ ...datoss, [event.target.name]: event.target.value })
     }
-
-
 
 
     /*

@@ -2,12 +2,21 @@
 var sha256 = require('js-sha256');
 
 
-async function FuncionEditarPassword(parampass) {
+async function FuncionEditarPassword(paramusername,paramnombre,paramapellido,paramfecha,paramcorreo,parampass,paramfile) {
     var retorno;
+
     var pass_encript = await sha256(parampass)
     var url="http://localhost:4000/CambiarPassword";
+    
+
     var inforenviar = {
-    'passwordnew':''+pass_encript
+    'Username':''+paramusername,
+    'Nombre': ''+paramnombre,
+    'Apellido':''+paramapellido,
+    'Fecha':''+paramfecha,
+    'Correo':''+paramcorreo,
+    'Password':''+pass_encript,
+    'File':''+paramfile,
     }
 
     await fetch(url,{
@@ -33,3 +42,6 @@ async function FuncionEditarPassword(parampass) {
 }
 
 export default FuncionEditarPassword;
+
+
+

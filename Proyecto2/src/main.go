@@ -194,6 +194,8 @@ func PostModificarPassword(w http.ResponseWriter, req *http.Request){
 
 
 func LeerCargamasiva(_Data string){
+
+	contador := 1
 	//llibrerias
 	vi := viper.New()
 	vi.SetConfigType("yaml")
@@ -237,12 +239,12 @@ func LeerCargamasiva(_Data string){
 				mestemporada := string(Cliente.Resultados[temp].Temporada[6:tam])
 				var finfechatemporada string
 				//fmt.Print("*********** Fecha: ")
-				iniciofechatemporada := aniotemporada+"-"+mestemporada+"-01";
+				iniciofechatemporada := aniotemporada+"-"+mestemporada+"-01 00:00:00";
 
 				if(mestemporada=="2"){
-					finfechatemporada = aniotemporada+"-"+mestemporada+"-29"
+					finfechatemporada = aniotemporada+"-"+mestemporada+"-29 59:59:59"
 				}else{
-					finfechatemporada = aniotemporada+"-"+mestemporada+"-30"
+					finfechatemporada = aniotemporada+"-"+mestemporada+"-30 59:59:59"
 				}
 				//fmt.Println(iniciofechatemporada)
 				//fmt.Println(finfechatemporada)
@@ -257,12 +259,12 @@ func LeerCargamasiva(_Data string){
 				var iniciofechajornada string
 				var finfhechajornada string
 				if numsemana == 1{
-					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ "01" 
-					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+"07"
+					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ "01 00:00:00" 
+					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+"07 00:00:00"
 				}else{
 					numsemana=numsemana*7+1
-					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana)
-					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana+7)
+					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana) +" 00:00:00"
+					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana+7) + "59:59:59"
 				}
 				/*
 				fmt.Printf("Inicio fecha temporada (semana)")
@@ -287,8 +289,10 @@ func LeerCargamasiva(_Data string){
 				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Local)
 				fmt.Println()	
 				*/
-				LlenarTablaTemporal(idUs,Cliente.Nombre,Cliente.Apellido,Cliente.Password,Cliente.Username,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Tier,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local,PrediccionVisitante,PrediccionLocal,ResultadoVisitante, ResutladoLocal ,iniciofechatemporada,finfechatemporada,iniciofechajornada,finfhechajornada)
 				
+				LlenarTablaTemporal(idUs,Cliente.Nombre,Cliente.Apellido,Cliente.Password,Cliente.Username,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Tier,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local,PrediccionVisitante,PrediccionLocal,ResultadoVisitante, ResutladoLocal ,iniciofechatemporada,finfechatemporada,iniciofechajornada,finfhechajornada)
+				//fmt.Println(contador)
+				contador++;
 				}
 			}
 		} 	
@@ -296,11 +300,26 @@ func LeerCargamasiva(_Data string){
 }
 
 
-
-func LlenarTablaTemporal(_IDUsuario,_NombreUsuario,_ApellidoUsuario,_PasswordUsuario,_UsernameUsuario,_Temporada,_TipoTier,_Jornada,_Deporte,_Fecha,_NombreVisitante,_NombreLocal,_PrediccionVisitante,_PrediccionLocal,_ResultadoVisitante,_ResutladoLocal,_FechaInicioTemporada,_FechaFinTemporada,_FechaInicioJornada,_FechaFinJornada string){
+//val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20     _IDUsuario,_NombreUsuario,_ApellidoUsuario,_PasswordUsuario,_UsernameUsuario,_Temporada,_TipoTier,_Jornada,_Deporte,_Fecha,_NombreVisitante,_NombreLocal,_PrediccionVisitante,_PrediccionLocal,_ResultadoVisitante,_ResutladoLocal,_FechaInicioTemporada,_FechaFinTemporada,_FechaInicioJornada,_FechaFinJornada
+func LlenarTablaTemporal(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20 string){
 	//voy a mostrar los datos que obtube al recorrer
-	Datos:= fmt.Sprintf("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s", _IDUsuario,_NombreUsuario,_ApellidoUsuario,_PasswordUsuario,_UsernameUsuario,_Temporada,_TipoTier,_Jornada,_Deporte,_Fecha,_NombreVisitante,_NombreLocal,_PrediccionVisitante,_PrediccionLocal,_ResultadoVisitante,_ResutladoLocal,_FechaInicioTemporada,_FechaFinTemporada,_FechaInicioJornada,_FechaFinJornada)
-	fmt.Println(Datos)
+	Datos:= fmt.Sprintf("insert into Temporal (idusuario,nombreusuario,apellidoUsuario,passwordusuario,UsernameUsuario,Temporada,TipoTier,Jornada,Deporte,Fecha,NombreVisitante,NombreLocal,PrediccionVisitante,PrediccionLocal,ResultadoVisitante,ResultadoLocal,FechaInicioTemporada,FechaFinTemporada,FechaInicioJornada,FechaFinJornada) values (:val1,:val2,:val3,:val4,:val5,:val6,:val7,:val8,:val9,:val10,:val11,:val12,:val13,:val14,:val15,:val16,:val17,:val18,:val19,:val20)", val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20)
+
+	//fmt.Println(Datos)
+	
+	db,err := Coneccion_Oracle()
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer db.Close()
+	_, error :=db.Exec("insert into Temporal (idusuario,nombreusuario,apellidoUsuario,passwordusuario,UsernameUsuario,Temporada,TipoTier,Jornada,Deporte,Fecha,NombreVisitante,NombreLocal,PrediccionVisitante,PrediccionLocal,ResultadoVisitante,ResultadoLocal,FechaInicioTemporada,FechaFinTemporada,FechaInicioJornada,FechaFinJornada) values (:val1,:val2,:val3,:val4,:val5,:val6,:val7,:val8,:val9,:val10,:val11,:val12,:val13,:val14,:val15,:val16,:val17,:val18,:val19,:val20)", val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20)
+
+	if error != nil{
+		fmt.Println(error)
+		fmt.Println(Datos)
+	}else{
+		//fmt.Println("Consulta Realizada")
+	}
 }
 
 

@@ -27,8 +27,7 @@ function InicioAdmin(props) {
               console.log(error)
             }
           }
-        }
-    
+        }   
       }
 
 

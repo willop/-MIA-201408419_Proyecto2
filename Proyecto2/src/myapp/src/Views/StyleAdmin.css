@@ -44,8 +44,21 @@
     margin-right: 16px;
 }
 
+@keyframes Slidemenu {
+    from{
+        position:0px;
+        background-color: rgb(6, 0, 113);
+    }
+    to{
+        position: 100%;
+        background-color: rgb(45, 144, 209);
+    }
+}
+
 ul li:hover {
     padding-left: 50px;
+    animation-name: Slidemenu;
+    animation-duration:1s;
 }
 
 #foto_preview{
@@ -55,32 +68,4 @@ ul li:hover {
     height: 70px;
     width:auto;
     border-radius: 50%;
-}
-
-#Informacion{
-    position: fixed;
-    top:10%;
-    left: 25%;
-    width: 70%;
-}
-
-#div_cant_membresias{
-    display: flex;   
-    float: left;
-    text-align: center;
-    width: 100%;
-    /*position: relative;
-    --display: block;
-    float:left;*/
-
-}
-
-#Close_session{
-    vertical-align: bottom;
-}
-
-#div_CargaMasiva{
-    position: fixed;
-    top:50%;
-    left: 54%;
 }

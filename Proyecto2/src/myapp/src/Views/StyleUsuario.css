@@ -46,6 +46,17 @@
 
 ul li:hover {
     padding-left: 50px;
+    animation-name: Slidemenu;
+    animation-duration:1s;
+}
+
+#foto_preview{
+    position: relative;
+    left: 30%;
+    background-color: aqua;
+    height: 70px;
+    width:auto;
+    border-radius: 50%;
 }
 
 #foto_preview{

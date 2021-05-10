@@ -16,7 +16,7 @@ import (
 	"log"
 	"github.com/mitchellh/mapstructure"
     "github.com/spf13/viper"
-	//"strconv"
+	"strconv"
 	"net/http"
 	 "github.com/gorilla/mux"
 	"html/template"
@@ -222,38 +222,87 @@ func LeerCargamasiva(_Data string){
 		//fmt.Println("---" + Cliente.Resultados[temp].Tier)
 		
 		for jorn := 0; jorn < len(Cliente.Resultados[temp].Jornadas); jorn++{
-			fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Jornada)
+			//fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Jornada)
 			for dep := 0; dep < len(Cliente.Resultados[temp].Jornadas[jorn].Predicciones); dep++{
+				/*
 				fmt.Println("-" + idUs)
 				fmt.Println("--" +Cliente.Nombre)
 				fmt.Println("--" +Cliente.Apellido)
 				fmt.Println("--" +Cliente.Password)
 				fmt.Println("--" +Cliente.Username)
 				fmt.Println("---" + Cliente.Resultados[temp].Temporada)
-				fmt.Println("---" + Cliente.Resultados[temp].Tier)
-				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte)
-				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha)
-				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante)
-				fmt.Println("-----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local)
+				*/
+				tam:=len(Cliente.Resultados[temp].Temporada)
+				aniotemporada := string(Cliente.Resultados[temp].Temporada[0:4])
+				mestemporada := string(Cliente.Resultados[temp].Temporada[6:tam])
+				var finfechatemporada string
+				//fmt.Print("*********** Fecha: ")
+				iniciofechatemporada := aniotemporada+"-"+mestemporada+"-01";
+
+				if(mestemporada=="2"){
+					finfechatemporada = aniotemporada+"-"+mestemporada+"-29"
+				}else{
+					finfechatemporada = aniotemporada+"-"+mestemporada+"-30"
+				}
+				//fmt.Println(iniciofechatemporada)
+				//fmt.Println(finfechatemporada)
+				//ahora vamos con la jornada
+				VarNumJornada:= string(Cliente.Resultados[temp].Jornadas[jorn].Jornada[1:2])
+				//fmt.Println(VarNumJornada)
+				numsemana, err:= strconv.Atoi(VarNumJornada) 
+				if err != nil{
+					fmt.Println("Error:")
+					fmt.Println(err)
+				}
+				var iniciofechajornada string
+				var finfhechajornada string
+				if numsemana == 1{
+					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ "01" 
+					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+"07"
+				}else{
+					numsemana=numsemana*7+1
+					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana)
+					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana+7)
+				}
+				/*
+				fmt.Printf("Inicio fecha temporada (semana)")
+				fmt.Printf(iniciofechajornada)
+				fmt.Printf("Fin fecha temporada (semana)")
+				fmt.Printf(finfhechajornada)
+				*/
+				PrediccionLocal := strconv.Itoa(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Prediccion.Local)
+				PrediccionVisitante := strconv.Itoa(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Prediccion.Visitante)
+				ResultadoVisitante :=  strconv.Itoa(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Visitante)
+				ResutladoLocal := strconv.Itoa(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Local)
+
+				/*
+				fmt.Println("---" +  Cliente.Resultados[temp].Tier)
+				fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte)
+				fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha)
+				fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante)
+				fmt.Println("----" + Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local)
 				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Prediccion.Local)
 				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Prediccion.Visitante)
-				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Local)
 				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Visitante)
-				
+				fmt.Println(Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Resultado.Local)
 				fmt.Println()	
+				*/
+				LlenarTablaTemporal(idUs,Cliente.Nombre,Cliente.Apellido,Cliente.Password,Cliente.Username,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Tier,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local,PrediccionVisitante,PrediccionLocal,ResultadoVisitante, ResutladoLocal ,iniciofechatemporada,finfechatemporada,iniciofechajornada,finfhechajornada)
+				
+				}
 			}
-
-		}
-
-	} 
-	
+		} 	
 	}
-	
-	
-
-
-
 }
+
+
+
+func LlenarTablaTemporal(_IDUsuario,_NombreUsuario,_ApellidoUsuario,_PasswordUsuario,_UsernameUsuario,_Temporada,_TipoTier,_Jornada,_Deporte,_Fecha,_NombreVisitante,_NombreLocal,_PrediccionVisitante,_PrediccionLocal,_ResultadoVisitante,_ResutladoLocal,_FechaInicioTemporada,_FechaFinTemporada,_FechaInicioJornada,_FechaFinJornada string){
+	//voy a mostrar los datos que obtube al recorrer
+	Datos:= fmt.Sprintf("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s", _IDUsuario,_NombreUsuario,_ApellidoUsuario,_PasswordUsuario,_UsernameUsuario,_Temporada,_TipoTier,_Jornada,_Deporte,_Fecha,_NombreVisitante,_NombreLocal,_PrediccionVisitante,_PrediccionLocal,_ResultadoVisitante,_ResutladoLocal,_FechaInicioTemporada,_FechaFinTemporada,_FechaInicioJornada,_FechaFinJornada)
+	fmt.Println(Datos)
+}
+
 
 func PostHomeEndPoint(w http.ResponseWriter, req *http.Request){
 	//fmt.Fprintf(w,"Hola mundo, como estas, todo bien" , html.escapeString(r.URL.Path))

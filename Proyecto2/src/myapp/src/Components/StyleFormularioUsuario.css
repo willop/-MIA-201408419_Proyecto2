@@ -7,6 +7,8 @@
     height: 70%;
     width: 60%;
     align-items: center;
+    animation-name: Aparicion;
+    animation-duration: 2s;
 }
 
 #div_campos{
@@ -25,4 +27,8 @@
     left:40%;
 }
 
+@keyframes Aparicion {
+    0% {background-color: rgba(0, 0, 0, 0)}
+    100% {background-color: cadetblue;}
+}
 

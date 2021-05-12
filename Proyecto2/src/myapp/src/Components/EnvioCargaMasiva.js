@@ -17,10 +17,10 @@ async function  CargaMasiva(param) {
         console.log(jsons)
         retorno = jsons
         if(jsons.Confirmacion === 0){
-            alert("Error al crear a un nuevo usuario")
+            alert("Error en carga masiva")
         }
         else{
-            alert("Usuario creado con exito")
+            alert("Carga masiva exitosa")
         }
     })
     .catch(error => console.error('Error:',error))

@@ -7,6 +7,8 @@ import (
 	"bytes"
 	"io/ioutil"
 	"os"
+	"encoding/hex"
+	"crypto/sha256"
 	"strings"
 	"encoding/base64"
 	"image/gif"
@@ -194,7 +196,11 @@ func PostModificarPassword(w http.ResponseWriter, req *http.Request){
 
 
 func LeerCargamasiva(_Data string){
+	//s:= "pass123"
+	
 
+
+	
 	contador := 1
 	//llibrerias
 	vi := viper.New()
@@ -230,21 +236,36 @@ func LeerCargamasiva(_Data string){
 				fmt.Println("-" + idUs)
 				fmt.Println("--" +Cliente.Nombre)
 				fmt.Println("--" +Cliente.Apellido)
-				fmt.Println("--" +Cliente.Password)
+				
 				fmt.Println("--" +Cliente.Username)
 				fmt.Println("---" + Cliente.Resultados[temp].Temporada)
 				*/
+				pass:=Cliente.Password
+				hash := sha256.New()
+				hash.Write([]byte(pass))
+				varpass := hex.EncodeToString(hash.Sum(nil))
+
 				tam:=len(Cliente.Resultados[temp].Temporada)
 				aniotemporada := string(Cliente.Resultados[temp].Temporada[0:4])
 				mestemporada := string(Cliente.Resultados[temp].Temporada[6:tam])
+				newmestemporada,err := strconv.Atoi(mestemporada)	
+				if err != nil{
+					fmt.Println(err)
+				}
+
+				if(newmestemporada<10){
+					mestemporada="0"+strconv.Itoa(newmestemporada)
+				}else{
+					mestemporada=strconv.Itoa(newmestemporada);
+				}
 				var finfechatemporada string
 				//fmt.Print("*********** Fecha: ")
 				iniciofechatemporada := aniotemporada+"-"+mestemporada+"-01 00:00:00";
 
-				if(mestemporada=="2"){
-					finfechatemporada = aniotemporada+"-"+mestemporada+"-29 59:59:59"
+				if(mestemporada=="02"){
+					finfechatemporada = aniotemporada+"-"+mestemporada+"-28 23:59:59"
 				}else{
-					finfechatemporada = aniotemporada+"-"+mestemporada+"-30 59:59:59"
+					finfechatemporada = aniotemporada+"-"+mestemporada+"-30 23:59:59"
 				}
 				//fmt.Println(iniciofechatemporada)
 				//fmt.Println(finfechatemporada)
@@ -258,13 +279,26 @@ func LeerCargamasiva(_Data string){
 				}
 				var iniciofechajornada string
 				var finfhechajornada string
+
+				var numdia int
+
 				if numsemana == 1{
 					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ "01 00:00:00" 
-					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+"07 00:00:00"
+					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+"07 23:59:59"
 				}else{
-					numsemana=numsemana*7+1
-					iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana) +" 00:00:00"
-					finfhechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numsemana+7) + "59:59:59"
+					numdia=(numsemana-1)*7 + 1
+					if(numdia <= 9 ){
+						iniciofechajornada = aniotemporada+"-" +mestemporada+"-0"+ strconv.Itoa(numdia) +" 00:00:00"
+					}else{
+						iniciofechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numdia) +" 00:00:00"
+					}
+					if(numdia+7 >= 28){
+						numdia=28
+						finfhechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numdia) + " 23:59:59"
+					}else{
+						finfhechajornada = aniotemporada+"-" +mestemporada+"-"+ strconv.Itoa(numdia+7) + " 23:59:59"						
+					}
+					
 				}
 				/*
 				fmt.Printf("Inicio fecha temporada (semana)")
@@ -290,7 +324,7 @@ func LeerCargamasiva(_Data string){
 				fmt.Println()	
 				*/
 				
-				LlenarTablaTemporal(idUs,Cliente.Nombre,Cliente.Apellido,Cliente.Password,Cliente.Username,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Tier,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local,PrediccionVisitante,PrediccionLocal,ResultadoVisitante, ResutladoLocal ,iniciofechatemporada,finfechatemporada,iniciofechajornada,finfhechajornada)
+				LlenarTablaTemporal(idUs,Cliente.Nombre,Cliente.Apellido,varpass,Cliente.Username,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Tier,Cliente.Resultados[temp].Jornadas[jorn].Jornada,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local,PrediccionVisitante,PrediccionLocal,ResultadoVisitante, ResutladoLocal ,iniciofechatemporada,finfechatemporada,iniciofechajornada,finfhechajornada)
 				//fmt.Println(contador)
 				contador++;
 				}
@@ -304,7 +338,6 @@ func LeerCargamasiva(_Data string){
 func LlenarTablaTemporal(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20 string){
 	//voy a mostrar los datos que obtube al recorrer
 	Datos:= fmt.Sprintf("insert into Temporal (idusuario,nombreusuario,apellidoUsuario,passwordusuario,UsernameUsuario,Temporada,TipoTier,Jornada,Deporte,Fecha,NombreVisitante,NombreLocal,PrediccionVisitante,PrediccionLocal,ResultadoVisitante,ResultadoLocal,FechaInicioTemporada,FechaFinTemporada,FechaInicioJornada,FechaFinJornada) values (:val1,:val2,:val3,:val4,:val5,:val6,:val7,:val8,:val9,:val10,:val11,:val12,:val13,:val14,:val15,:val16,:val17,:val18,:val19,:val20)", val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20)
-
 	//fmt.Println(Datos)
 	
 	db,err := Coneccion_Oracle()
@@ -462,9 +495,9 @@ func ConsultaLogin(user,pass string)([]return_Login,error){
 	}
 	defer db.Close()
 	var consulta string
-	           consulta = "select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
+	           consulta = "select cliente.id_cliente, cliente.FK_ID_rol, cliente.cliente_username from cliente where cliente.cliente_username= '"+user+"' and cliente.cliente_password='"+pass+"';"
 	fmt.Println(consulta)
-	rows, err := db.Query("select cliente.id_cliente, cliente.cliente_rol, cliente.cliente_username from cliente where cliente.cliente_username = '"+user+"' and cliente.cliente_password='"+pass+"'")
+	rows, err := db.Query("select cliente.id_cliente, cliente.FK_ID_rol, cliente.cliente_username from cliente where cliente.cliente_username = '"+user+"' and cliente.cliente_password='"+pass+"'")
 	if err != nil {
 		log.Fatal("Error fetching user data\n", err)
 	}
@@ -523,12 +556,10 @@ func ConsultaCrearUsuario(_username string,_pass string,_nombre string,_apelli s
 	}
 	defer db.Close()
 	var consulta string
-	consulta = "\n\ninsert into cliente (Cliente_username,cliente_password,Cliente_nombre,Cliente_apellido,Cliente_fecha_nacimiento,Cliente_fecha_registro,Cliente_correo_electronico,Cliente_foto_perfil,cliente_rol) values ('"+_username+"','"+_pass+"','"+_nombre+"','"+_apelli+"',TIMESTAMP '"+_fecha_nacimiento+" 00:00:00',TIMESTAMP '"+_fecha_registro+"','"+_correo+"','"+_foto+"',2);";
+	     consulta = "\n\ninsert into cliente (Cliente_username,cliente_password,Cliente_nombre,Cliente_apellido,Cliente_fecha_nacimiento,Cliente_fecha_registro,Cliente_correo_electronico,Cliente_foto_perfil,FK_ID_rol) values ('"+_username+"','"+_pass+"','"+_nombre+"','"+_apelli+"',TIMESTAMP '"+_fecha_nacimiento+" 00:00:00',TIMESTAMP '"+_fecha_registro+"','"+_correo+"','"+_foto+"',2);";
 	fmt.Println(consulta)
-	_, error := db.Exec("insert into cliente (Cliente_username,cliente_password,Cliente_nombre,Cliente_apellido,Cliente_fecha_nacimiento,Cliente_fecha_registro,Cliente_correo_electronico,Cliente_foto_perfil,cliente_rol) values ('"+_username+"','"+_pass+"','"+_nombre+"','"+_apelli+"',TIMESTAMP '"+_fecha_nacimiento+" 00:00:00',TIMESTAMP '"+_fecha_registro+"','"+_correo+"','"+_foto+"',2)")
-	
-	fmt.Println("Usuario creado con exito")
-	
+	_, error := db.Exec("insert into cliente (Cliente_username,cliente_password,Cliente_nombre,Cliente_apellido,Cliente_fecha_nacimiento,Cliente_fecha_registro,Cliente_correo_electronico,Cliente_foto_perfil,FK_ID_rol) values ('"+_username+"','"+_pass+"','"+_nombre+"','"+_apelli+"',TIMESTAMP '"+_fecha_nacimiento+" 00:00:00',TIMESTAMP '"+_fecha_registro+"','"+_correo+"','"+_foto+"',2)")	
+	fmt.Println("Usuario creado con exito")	
 	return error
 
 }

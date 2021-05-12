@@ -1,5 +1,5 @@
 
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Views/StyleAdmin.css';
 import Cookies from 'universal-cookie';
@@ -22,12 +22,49 @@ function Administrador(props) {
   const [Informacion1, setInfoadmin1]= useState();
   const [Informacion2, setInfoadmin2]= useState();
   const [Informacion3, setInfoadmin3]= useState();
+  const[img,setImg] = useState('')
 
   function Switchdiv(event, param){
     getdatosadmin()
     console.log("hola desde "+param)
     setSwitch(param)
 }
+
+
+  useEffect(() => {
+        var iden = cookies.get('ID_usuario') + "";
+
+        console.log("Quiero el identificador de mi cookie " + iden);
+        var url = "http://localhost:4000/DatosUsuario";
+        var inforenviar = {
+            'ident': ''+iden
+        }
+
+        fetch(
+            url,
+                {
+                    method:'POST',
+                    body: JSON.stringify(inforenviar)
+                })
+        .then(Response =>Response.json())
+        .then(function(jsons){
+            
+            var fechasub = jsons.FechaNacimiento
+            fechasub = fechasub.substring(0,10)
+            console.log("Fecha: "+fechasub)
+            jsons.FechaNacimiento= fechasub
+            setImg(jsons)
+        })
+        .catch(error => console.error('Error:',error))
+        console.log(img)
+        
+        /*var infomostrar = GetInfo(iden);
+        console.log("Probando usestate"+infomostrar)
+        console.log("accediendo a la data: "+infomostrar.nombre)
+        setImg(infomostrar)
+*/
+        //console.log(img)
+    },[]);
 
     const getdatosadmin= async (event) =>{
       var retorno
@@ -50,7 +87,7 @@ function Administrador(props) {
 function Componente () {
         //home
   if (switchComp===1) {
-      return <Formulario/>
+      return <Formulario name={img.Nombre} apellido={img.Apellido} Fecha={img.FechaNacimiento}  correo={img.CorreoElectronico} membresia={img.TipoMembresia}  imgg={img.FotoUsuario}  />
         //perfil
   } else if (switchComp===2) {
       return <HomeAdmin info1={Informacion1} info2={Informacion2}  info3={Informacion3} total={Informacion1}/>
@@ -103,10 +140,10 @@ console.log("Tipo_rol: "+cookies.get('Tipo_rol'));
     <div id="div_container_admin">
       <div className="slidebar">
         <div >
-          <img src={imgg} id="foto_preview" />
+          <img src={img.FotoUsuario} id="foto_preview" />
         </div>
         <ul>
-          <header>Hola</header>
+          <header>{img.Nombre}</header>
           <li onClick={(e)=> {Switchdiv(e, 1)}}><BiUserPlus />   Perfil</li>
           <li onClick={(e)=> {Switchdiv(e, 2)}}><BiHome />   Inicio</li>
           <li onClick={(e)=> {Switchdiv(e, 3)}}><MdPayment />   Membresia</li>

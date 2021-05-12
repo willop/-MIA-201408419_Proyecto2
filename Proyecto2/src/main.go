@@ -182,6 +182,39 @@ func PostCargaMasiva(w http.ResponseWriter, req *http.Request){
 	json.NewEncoder(w).Encode(vaciovec)
 	LeerCargamasiva(datos.DataCMasiva)
 	//fmt.Println(datos.DataCMasiva)
+
+	err1 := cargamasiva1();
+	if err1 != nil{
+		fmt.Println("Error Prueba 1")
+	}
+	err2 := cargamasiva1();
+	if err2 != nil{
+		fmt.Println("Error Prueba 2")
+	}
+	err3 := cargamasiva1();
+	if err3 != nil{
+		fmt.Println("Error Prueba 3")
+	}
+	err4 := cargamasiva1();
+	if err4 != nil{
+		fmt.Println("Error Prueba 4")
+	}
+	err5 := cargamasiva1();
+	if err5 != nil{
+		fmt.Println("Error Prueba 5")
+	}
+	err6 := cargamasiva1();
+	if err6 != nil{
+		fmt.Println("Error Prueba 6")
+	}
+	err7 := cargamasiva1();
+	if err7 != nil{
+		fmt.Println("Error Prueba 7")
+	}
+	err8 := cargamasiva1();
+	if err8 != nil{
+		fmt.Println("Error Prueba 8")
+	}
 }
 
 
@@ -217,6 +250,90 @@ func PostModificarPassword(w http.ResponseWriter, req *http.Request){
 	fmt.Println(err)
 
 
+}
+
+
+func cargamasiva1()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into Cliente(id_cliente_aux, cliente_nombre, cliente_apellido, cliente_password,cliente_username,cliente_correo_electronico) select distinct idusuario, nombreusuario,apellidousuario,passwordusuario,usernameusuario,usernameusuario as correo from Temporal")	
+	fmt.Println("Carga mmasiva 1 con exito")	
+	return error
+}
+
+func cargamasiva2()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into Deporte(deporte_nombre) select distinct Deporte from temporal")	
+	fmt.Println("Carga mmasiva 2 con exito")	
+	return error
+}
+
+func cargamasiva3()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into temporada(temporada_nombre_temporada,temporada_inicio_temporada,temporada_fin_temporada) select distinct temporada,TO_TIMESTAMP(fechainiciotemporada,'YYYY-MM-DD HH24:MI:SS'),TO_TIMESTAMP(fechafintemporada,'YYYY-MM-DD HH24:MI:SS') from temporal")	
+	fmt.Println("Carga mmasiva 3 con exito")	
+	return error
+}
+func cargamasiva4()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into jornada (jornada_fase,jornada_fecha_inicio,jornada_fechar_fin,FK_ID_temporada) select distinct 'Finalizada' , TO_TIMESTAMP(fechainiciojornada,'YYYY-MM-DD HH24:MI:SS'),TO_TIMESTAMP(fechafinjornada,'YYYY-MM-DD HH24:MI:SS'), id_temporada from temporal inner join Temporada on temporada.temporada_nombre_temporada = temporal.temporada")	
+	fmt.Println("Carga mmasiva 4 con exito")	
+	return error
+}
+func cargamasiva5()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into equipo(equipo_nombre) select distinct nombrevisitante from temporal union select distinct nombrelocal from temporal")	
+	fmt.Println("Carga mmasiva 5 con exito")	
+	return error
+}
+func cargamasiva6()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into evento (evento_puntaje_local,Evento_puntaje_visitante,fk_id_jornada,fk_id_equipo_local, fk_id_equipo_visitante,fk_id_deporte,fk_id_estado_evento,evento_fecha) select distinct resultadolocal,resultadovisitante,id_jornada, a.id_equipo, b.id_equipo, id_deporte, 1 as idd,to_timestamp(fecha,'YYYY-MM-DD HH24:MI:SS')  from temporal inner join equipo a on a.equipo_nombre = temporal. nombrelocal inner join equipo b on b.equipo_nombre = temporal. nombrevisitante inner join deporte on deporte.deporte_nombre = temporal.deporte inner join jornada on jornada.jornada_fecha_inicio = to_timestamp(temporal.fechainiciojornada,'YYYY-MM-DD HH24:MI:SS')")	
+	fmt.Println("Carga mmasiva 6 con exito")	
+	return error
+}
+func cargamasiva7()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into usuario_membresia(membresia_inicio_membresia,membresia_fin_membreia,FK_ID_cliente,FK_ID_membresia,FK_ID_temporada) select  distinct to_timestamp(fechainiciotemporada,'YYYY-MM-DD HH24:MI:SS'),to_timestamp(fechafintemporada,'YYYY-MM-DD HH24:MI:SS'),id_cliente,id_membresia,  id_temporada from temporal inner join cliente on cliente.id_cliente_aux = temporal.idusuario inner join membresia on membresia.membresia_tipo_membresia = temporal.tipotier inner join temporada on temporada.temporada_nombre_temporada = temporal.temporada")	
+	fmt.Println("Carga mmasiva 7 con exito")	
+	return error
+}
+func cargamasiva8()error{
+	db,err := Coneccion_Oracle()
+	if err != nil{
+		return err
+	}
+	defer db.Close()
+	_, error := db.Exec("insert into prediccion (prediccion_local, prediccion_visitante, fk_id_cliente, fk_id_evento) select  distinct prediccionlocal ,prediccionvisitante, id_cliente, id_evento from temporal inner join cliente on cliente.id_cliente_aux = temporal.idusuario inner join evento on evento.evento_fecha = to_timestamp(fecha,'YYYY-MM-DD HH24:MI:SS')")	
+	fmt.Println("Carga mmasiva 8 con exito")	
+	return error
 }
 
 

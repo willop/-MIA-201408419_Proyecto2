@@ -1,0 +1,407 @@
+-- Tabla de membresia
+create table Membresia (
+ID_membresia number,
+Membresia_Tipo_membresia varchar2(10),
+Membresia_precio number,
+constraint PK_Membresia primary key(ID_membresia)
+);
+
+
+create sequence Membresia_seq start with 1 NOCACHE;
+
+create or replace trigger Membresia_tri
+before insert on Membresia 
+for each row
+begin
+	select Membresia_seq.Nextval
+	into :new.ID_membresia
+	from dual;
+end;
+
+
+
+--tabla de roles 
+Create table Rol(
+ID_rol number ,
+Rol_tipo varchar(50),
+constraint PK_rol primary key (ID_rol)
+);
+
+create sequence Rol_seq start with 1 NOCACHE;
+
+create or replace trigger Rol_tri
+before insert on Rol 
+for each row
+begin
+	select Rol_seq.Nextval
+	into :new.ID_rol
+	from dual;
+end;
+
+
+
+
+--Tabla de clientes
+Create table Cliente (
+ID_cliente number ,
+ID_cliente_aux varchar(5),
+Cliente_Username varchar2(50) null,
+Cliente_Password varchar2(100) null,
+Cliente_Nombre varchar2(25) null,
+Cliente_Apellido varchar2(25)  null, 
+Cliente_Fecha_nacimiento timestamp,
+Cliente_Fecha_registro timestamp default sysdate,
+Cliente_Correo_electronico varchar2(50),
+Cliente_Foto_perfil varchar2(200) default './avatardefault.jpg',
+FK_ID_rol number default 2,
+constraint PK_Cliente primary key (ID_cliente),
+constraint FK_Rol_cliente Foreign key (FK_ID_rol) references Rol(ID_rol)
+);
+
+
+
+create sequence Cliente_seq start with 1 NOCACHE;
+
+create or replace trigger Cliente_tri
+before insert on Cliente 
+for each row
+begin
+	select Cliente_seq.Nextval
+	into :new.ID_Cliente
+	from dual;
+end;
+
+
+--Tabla de temporada 
+create table Temporada(
+ID_temporada number ,
+Temporada_Nombre_temporada varchar2(25),
+Temporada_Ganancia number(*,2) default 0,
+Temporada_Inicio_temporada timestamp,
+Temporada_Fin_temporada timestamp,
+constraint PK_temporada primary key(ID_temporada)
+);
+
+create sequence Temporada_seq start with 1 NOCACHE;
+
+create or replace trigger Temporada_tri
+before insert on Temporada 
+for each row
+begin
+	select Temporada_seq.Nextval
+	into :new.ID_Temporada
+	from dual;
+end;
+
+
+--tabla de recompensa 
+create table Recompensa(
+ID_recompensa number ,
+Recompensa_Cantidad_recompensa number(*,2),
+FK_ID_Temporada number not null,
+FK_ID_Cliente number not null,
+constraint PK_recompensa primary key(ID_recompensa),
+constraint FK_recompensa_Temporada foreign key(FK_ID_Temporada) references Temporada(ID_temporada),
+constraint FK_recompensa_Cliente foreign key(FK_ID_Cliente) references Cliente(ID_cliente)
+);
+
+create sequence Recompensa_seq start with 1 nocache;
+
+create or replace trigger Recompensa_tri
+before insert on Recompensa
+for each row
+begin
+	select Recompensa_seq.Nextval
+	into :new.ID_Recompensa
+	from dual;
+end;
+
+
+
+--tabla de jornada
+create table Jornada(
+ID_jornada number ,
+Jornada_Fase varchar(25) default 'Finalizada',
+Jornada_Fecha_inicio timestamp,
+Jornada_Fechar_fin timestamp,
+FK_ID_temporada number,
+constraint PK_jornada primary key(ID_jornada),
+constraint FK_jornada_temporada foreign key(FK_ID_temporada) references Temporada(ID_temporada)
+);
+
+create sequence Jornada_seq start with 1 NOCACHE;
+
+create or replace trigger Jornada_tri
+before insert on Jornada
+for each row
+begin
+	select Jornada_seq.Nextval
+	into :new.ID_Jornada
+	from dual;
+end;
+
+
+
+--tabla Estado evento deportivo
+Create table Estado_EventoDeportivo(
+ID_estado_evento number ,
+Estado_evento_color varchar2(25) not null, 
+constraint PK_ID_estado_evento primary key (ID_estado_evento)
+);
+
+create sequence Estado_EventoDeportivo_seq start with 1 NOCACHE;
+
+create or replace trigger Estado_EventoDeportivo_tri
+before insert on Estado_EventoDeportivo
+for each row
+begin
+	select Estado_EventoDeportivo_seq.Nextval
+	into :new.ID_estado_evento
+	from dual;
+end;
+
+
+--tabla de equipo
+Create table Equipo(
+ID_equipo number ,
+Equipo_nombre varchar2(50) not null,
+constraint PK_equipo primary key(ID_equipo)
+);
+
+create sequence Equipo_seq start with 1 NOCACHE;
+
+create or replace trigger Equipo_tri
+before insert on Equipo
+for each row
+begin
+	select Equipo_seq.Nextval
+	into :new.ID_equipo
+	from dual;
+end; 
+
+
+--tabla de deporte
+create table Deporte(
+ID_deporte number ,
+Deporte_Nombre varchar2(50) null,
+Deporte_img varchar2(200) default './ImgDeporte/avatardeporte.jpg', 
+Deporte_color varchar2(25)  null,
+constraint PK_deporte primary key (ID_deporte)
+);
+
+create sequence Deporte_seq start with 1 NOCACHE;
+
+create or replace trigger Deporte_tri
+before insert on Deporte
+for each row
+begin
+	select Deporte_seq.Nextval
+	into :new.ID_deporte
+	from dual;
+    select Deporte_seq.currval
+    into :new.Deporte_color
+    from dual;      
+end;
+
+
+--tabla de chat
+Create table Chat(
+ID_chat number ,
+FK_ID_cliente number not null,
+FK_ID_administrador number not null, 
+constraint PK_chat primary key (ID_chat),
+constraint FK_chat_cliente foreign key(FK_ID_cliente) references Cliente(ID_cliente),
+constraint FK_chat_administrador foreign key(FK_ID_administrador) references Cliente(ID_cliente)
+);
+
+create sequence Chat_seq start with 1 NOCACHE;
+
+create or replace trigger Chat_tri
+before insert on Chat
+for each row
+begin
+	select Chat_seq.Nextval
+	into :new.ID_chat
+	from dual;
+end;
+
+
+--tabla de mensaje
+create table Mensaje(
+ID_mensaje number ,
+Mensaje_contenido varchar2(2000),
+FK_ID_chat int not null,
+constraint PK_ID_mensaje primary key (ID_mensaje),
+constraint FK_ID_chat foreign key (FK_ID_chat) references Chat(ID_chat)
+);
+
+create sequence Mensaje_seq start with 1 NOCACHE;
+
+create or replace trigger Mensaje_tri
+before insert on Mensaje
+for each row
+begin
+	select Mensaje_seq.Nextval
+	into :new.ID_mensaje
+	from dual;
+end;
+
+
+-- tabla de usuario membresia
+create table Usuario_Membresia(
+ID_usuario_membresia number ,
+Membresia_Inicio_membresia TIMESTAMP,
+Membresia_Fin_membreia TIMESTAMP,
+Membresia_Estado_membresia number,
+FK_ID_cliente number null,
+FK_ID_membresia number null,
+FK_ID_temporada number null,
+constraint PK_ID_usuario primary key (ID_usuario_membresia),
+constraint FK_ID_membresia foreign key (FK_ID_membresia) references Membresia(ID_membresia),
+constraint FK_ID_cliente foreign key (FK_ID_cliente) references Cliente(ID_cliente),
+constraint FK_ID_temporada foreign key (FK_ID_temporada) references Temporada(ID_temporada)
+);
+
+create sequence Usuario_Membresia_seq start with 1 NOCACHE;
+
+create or replace trigger Usuario_Membresia_tri
+before insert on Usuario_Membresia
+for each row
+begin
+	select Usuario_Membresia_seq.Nextval
+	into :new.ID_usuario_membresia
+	from dual;
+end;
+
+
+--Tabla de ranking
+Create table Ranking(
+ID_ranking number ,
+Ranking_Incremento number(*,2),
+FK_ID_Temporada number not null,
+FK_ID_Cliente number not null, 
+FK_ID_Usuario_membresia number not null,
+Ranking_P10 number,
+Ranking_P5 number,
+Ranking_P3 number,
+Ranking_P0 number,
+Ranking_total number,
+CONSTRAINT PK_ranking primary key(ID_ranking),
+CONSTRAINT FK_ranking_temporada foreign key(FK_ID_Temporada) references Temporada(ID_temporada),
+CONSTRAINT FK_ranking_usuario_membresia foreign key(FK_ID_Usuario_membresia) references Usuario_Membresia(ID_usuario_membresia),
+constraint FK_ranking_cliente foreign key(FK_ID_Cliente) references Cliente(ID_cliente)
+);
+
+create sequence Ranking_seq start with 1 NOCACHE;
+
+create or replace trigger Ranking_tri
+before insert on Ranking
+for each row
+begin
+	select Ranking_seq.Nextval
+	into :new.ID_ranking
+	from dual;
+end;
+
+
+--tabla de evento
+create table Evento(
+ID_evento number ,
+Evento_Puntaje_local number null,
+Evento_Puntaje_visitante number null,
+Evento_fecha TIMESTAMP,
+FK_ID_jornada number null,
+FK_ID_equipo_local number null,
+FK_ID_equipo_visitante number null,
+FK_ID_deporte number null,
+FK_ID_estado_evento number not null,
+CONSTRAINT PK_evento primary key (ID_evento),
+constraint FK_evento_jornada foreign key (FK_ID_jornada) references Jornada(ID_jornada),
+constraint FK_evento_equipo_local foreign key (FK_ID_equipo_local) references Equipo(ID_equipo),
+constraint FK_evento_equipo_visitante foreign key (FK_ID_equipo_visitante) references Equipo(ID_equipo),
+constraint FK_evento_deporte foreign key (FK_ID_deporte) references Deporte(ID_deporte),
+constraint FK_ID_estado_evento foreign key (FK_ID_estado_evento) references Estado_EventoDeportivo(ID_estado_evento)
+);
+
+create sequence Evento_seq start with 1 NOCACHE;
+
+create or replace trigger Evento_tri
+before insert on Evento
+for each row
+begin
+	select Evento_seq.Nextval
+	into :new.ID_evento
+	from dual;
+end;
+
+
+--tabla de prediccion
+create table Prediccion(
+ID_prediccion number ,
+Prediccion_local number null,
+Prediccion_visitante number null,
+Prediccion_puntaje number null,
+FK_ID_cliente number not null,
+FK_ID_evento number not null,
+constraint PK_prediccion primary key(ID_prediccion),
+constraint FK_prediccion_cliente foreign key(FK_ID_cliente) references Cliente(ID_cliente),
+constraint FK_prediccion_evento foreign key(FK_ID_evento) references Evento(ID_evento)
+);
+
+
+create sequence Prediccion_seq start with 1 nocache;
+
+create or replace trigger Prediccion_tri
+before insert on Prediccion
+for each row
+begin
+	select Prediccion_seq.Nextval
+	into :new.ID_prediccion
+	from dual;
+end;
+
+ 
+
+--Creando la tabla Temporal
+create table Temporal (
+	IDUsuario 				varchar(200),
+	NombreUsuario 				varchar(200),
+	ApellidoUsuario			varchar(200),
+	PasswordUsuario			varchar(200),
+	UsernameUsuario			varchar(200),
+	Temporada				varchar(200),
+	TipoTier				varchar(200),
+	Jornada				varchar(200),
+	Deporte				varchar(200),
+	Fecha					varchar(200),
+	NombreVisitante			varchar(200),
+	NombreLocal				varchar(200),
+	PrediccionVisitante			varchar(200),
+	PrediccionLocal			varchar(200),
+	ResultadoVisitante			varchar(200),
+	ResultadoLocal				varchar(200),
+	FechaInicioTemporada			varchar(200),
+	FechaFinTemporada			varchar(200),
+	FechaInicioJornada			varchar(200),
+	FechaFinJornada			varchar(200)
+);
+
+
+CREATE TABLE color(
+    idColor NUMBER,
+    nombre VARCHAR2(15) NOT NULL,
+    CONSTRAINT PK_Color PRIMARY KEY (idColor)
+);
+
+CREATE SEQUENCE Aum_Color
+START WITH 1
+INCREMENT BY 1 NOCACHE;
+
+CREATE OR REPLACE TRIGGER Inc_Color
+BEFORE INSERT ON color
+FOR EACH ROW
+BEGIN
+    select Aum_Color.nextval into :new.idColor from dual;
+END;
+
+

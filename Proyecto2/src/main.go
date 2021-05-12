@@ -93,6 +93,12 @@ type return_nuevoUsuario struct{
 	Confirmacion 				int
 }
 
+type return_informacion struct{
+	Membresia_Tipo				string
+	Membresia_cantida			string
+	Membresia_total 			string
+}
+
 
 //********************* Estructuras desde react *********************************
 //prueba
@@ -144,6 +150,24 @@ type req_cargaMasiva struct{
 /*********************************************** fin estructuras *****************************/
 
 //********************************************* funciones API ********************************************
+func GetDatosAdmin(w http.ResponseWriter, req *http.Request){
+	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Access-Control-Allow-Origin","*")
+	w.WriteHeader(http.StatusOK)
+
+	Consulta, err:= ConsultaInfoAdmin()
+	fmt.Println(Consulta)
+	if err != nil {
+		var vaciovec return_nuevoUsuario
+			vaciovec.Confirmacion=0
+			json.NewEncoder(w).Encode(vaciovec)
+	} else{
+		json.NewEncoder(w).Encode(Consulta)
+		fmt.Println(err)
+	}
+
+}
+
 func PostCargaMasiva(w http.ResponseWriter, req *http.Request){
 	fmt.Println("Carga masiva\n\n\n\n\n")	
 	var datos req_cargaMasiva
@@ -177,6 +201,7 @@ func PostModificarPassword(w http.ResponseWriter, req *http.Request){
 	w.WriteHeader(http.StatusOK)
 
 	err:= ConsultaUpdate(datos.Update_Username,datos.Update_Nombre,datos.Update_Apellido,datos.Update_Fecha,datos.Update_Correo,datos.Update_Password,datos.Update_File)
+	
 	if err != nil {
 		var vaciovec return_nuevoUsuario
 			vaciovec.Confirmacion=0
@@ -196,13 +221,8 @@ func PostModificarPassword(w http.ResponseWriter, req *http.Request){
 
 
 func LeerCargamasiva(_Data string){
-	//s:= "pass123"
-	
-
-
-	
-	contador := 1
 	//llibrerias
+	fmt.Println("Inicio carga masiva")
 	vi := viper.New()
 	vi.SetConfigType("yaml")
 	//para leer en yaml
@@ -325,12 +345,11 @@ func LeerCargamasiva(_Data string){
 				*/
 				
 				LlenarTablaTemporal(idUs,Cliente.Nombre,Cliente.Apellido,varpass,Cliente.Username,Cliente.Resultados[temp].Temporada,Cliente.Resultados[temp].Tier,Cliente.Resultados[temp].Jornadas[jorn].Jornada,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Deporte,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Fecha,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Visitante,Cliente.Resultados[temp].Jornadas[jorn].Predicciones[dep].Local,PrediccionVisitante,PrediccionLocal,ResultadoVisitante, ResutladoLocal ,iniciofechatemporada,finfechatemporada,iniciofechajornada,finfhechajornada)
-				//fmt.Println(contador)
-				contador++;
 				}
 			}
 		} 	
 	}
+	fmt.Println("Fin carga masiva")
 }
 
 
@@ -549,6 +568,37 @@ func ConsultaUsuario(_Identificador string)([]return_perfil,error){
 	return Retorno,nil
 }
 
+func ConsultaInfoAdmin()([]return_informacion,error){
+	Retorno:= []return_informacion{}
+	db, err := Coneccion_Oracle()
+	if err != nil{
+		return nil,err
+	}
+
+	defer db.Close()
+	rows, err := db.Query("select membresia.membresia_tipo_membresia as Tipo, count(membresia.id_membresia) as cantidad ,(select sum(membresia.membresia_precio) as capital from usuario_membresia inner join temporada on temporada.id_temporada = usuario_membresia.fk_id_temporada and temporada.temporada_fin_temporada = (select max(temporada_fin_temporada)from temporada) inner join membresia on membresia.id_membresia = usuario_membresia.fk_id_membresia) as total from usuario_membresia inner join temporada on temporada.id_temporada = usuario_membresia.fk_id_temporada and temporada.temporada_fin_temporada = (select max(temporada_fin_temporada)from temporada) inner join membresia on membresia.id_membresia = usuario_membresia.fk_id_membresia group by membresia.id_membresia, membresia.membresia_tipo_membresia")
+	if err!= nil{
+		log.Fatal("Error fatal en la consulta\n",err)
+	}
+	defer rows.Close()
+
+	var tipoo return_informacion
+	for rows.Next(){
+		err = rows.Scan(&tipoo.Membresia_Tipo,&tipoo.Membresia_cantida,&tipoo.Membresia_total)
+			if err != nil{
+				fmt.Println(err)
+				return nil,err
+			}
+			Retorno = append(Retorno,tipoo)
+	}
+	fmt.Println("Retorno de get info")
+	fmt.Println(Retorno)
+	return Retorno,nil
+	
+//err = rows.Scan(&even.Membresia_Tipo,&even.Membresia_cantida,&even.Membresia_total)
+}
+
+
 func ConsultaCrearUsuario(_username string,_pass string,_nombre string,_apelli string,_fecha_nacimiento string,_fecha_registro string,_correo string,_foto string)error{
 	db,err := Coneccion_Oracle()
 	if err != nil{
@@ -697,6 +747,7 @@ func DataToImgFromOracle(dataimg,nombreimg string){
 	//---------------------NOTA NO DIRECCIONES CON HIJOS --------------------------
 	//------------------------------- RUTAS --------------------------------------
 	router.HandleFunc("/Api",PostHomeEndPoint).Methods("POST")
+	router.HandleFunc("/GetDatos",GetDatosAdmin).Methods("GET")
 	router.HandleFunc("/CrearUsuario",PostCrearUsuario).Methods("POST")
 	router.HandleFunc("/DatosUsuario",PostDatosUsuario).Methods("POST")
 	router.HandleFunc("/CambiarPassword",PostModificarPassword).Methods("POST")

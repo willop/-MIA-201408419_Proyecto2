@@ -9,7 +9,7 @@ const yaml = require('js-yaml');
 function InicioAdmin(props) {
 
     const[valor, setvalor]=useState('')
-
+    
 
 
     const CargaMasiva=async(e)=>{
@@ -41,7 +41,7 @@ function InicioAdmin(props) {
             <Card body inverse color="info">
               <CardTitle tag="h5">Capital de Temporada</CardTitle>
               <CardText>
-                <h1>1234</h1>
+                <h1>{props.info1.Membresia_total}</h1>
               </CardText>
             </Card>
           </center>
@@ -49,21 +49,21 @@ function InicioAdmin(props) {
         <br />
         <div id="div_cant_membresias">
           <Card body inverse style={{ backgroundColor: '#D47907', borderColor: '#333' }}>
-            <CardTitle tag="h5">Capital de Temporada</CardTitle>
+            <CardTitle tag="h5">Membresia gold</CardTitle>
             <CardText>
-              <h1>1234</h1>
+              <h1>{props.info1.Membresia_cantida}</h1>
             </CardText>
           </Card>
           <Card body inverse style={{ backgroundColor: '#9D9D9D', borderColor: '#333' }}>
-            <CardTitle tag="h5">Capital de Temporada</CardTitle>
+            <CardTitle tag="h5">Membresia plata</CardTitle>
             <CardText>
-              <h1>1234</h1>
+              <h1>{props.info2.Membresia_cantida}</h1>
             </CardText>
           </Card>
           <Card body inverse color="warning">
-            <CardTitle tag="h5">Capital de Temporada</CardTitle>
+            <CardTitle tag="h5">Membresia Oro</CardTitle>
             <CardText>
-              <h1>1234</h1>
+              <h1>{props.info3.Membresia_cantida}</h1>
             </CardText>
           </Card>
         </div>

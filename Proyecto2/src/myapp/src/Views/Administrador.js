@@ -10,6 +10,7 @@ import { HiOutlineChartSquareBar } from "react-icons/hi";
 import HomeAdmin from "../Components/InicioAdmin"
 import Formulario from "../Components/FormularioUsuario"
 import imgg from "./Img/apuestas.png"
+//import Funinfoadmin from '../Funciones/FuncionInfoAdmin'
 
 
 
@@ -18,11 +19,33 @@ const cookies = new Cookies();
 function Administrador(props) {
 
   const [switchComp, setSwitch] = useState(0);
+  const [Informacion1, setInfoadmin1]= useState();
+  const [Informacion2, setInfoadmin2]= useState();
+  const [Informacion3, setInfoadmin3]= useState();
 
   function Switchdiv(event, param){
+    getdatosadmin()
     console.log("hola desde "+param)
     setSwitch(param)
 }
+
+    const getdatosadmin= async (event) =>{
+      var retorno
+      var url = "http://localhost:4000/GetDatos";
+      await fetch(url)
+      .then(Response =>Response.json())
+      .then(function(jsons){
+          retorno = jsons
+          setInfoadmin1(retorno[0])
+          setInfoadmin2(retorno[1])
+          setInfoadmin3(retorno[2])
+          
+      })
+      .catch(error => console.error('Error:',error))
+      console.log(retorno[0])
+      //setInfoadmin(retorno[0].Membresia_Tipo,retorno[0].Membresia_cantida,retorno[0].Membresia_total)
+    }
+
 
 function Componente () {
         //home
@@ -30,7 +53,7 @@ function Componente () {
       return <Formulario/>
         //perfil
   } else if (switchComp===2) {
-      return <HomeAdmin/>
+      return <HomeAdmin info1={Informacion1} info2={Informacion2}  info3={Informacion3} total={Informacion1}/>
       
   } else if (switchComp===3) {
       return ""

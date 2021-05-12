@@ -26,7 +26,7 @@ function Administrador(props) {
 
   function Switchdiv(event, param){
     getdatosadmin()
-    console.log("hola desde "+param)
+    //console.log("hola desde "+param)
     setSwitch(param)
 }
 
